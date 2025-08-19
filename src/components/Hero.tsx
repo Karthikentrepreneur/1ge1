@@ -1,126 +1,111 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { CheckCircle } from "lucide-react";
 
-/** ========= CONFIG ========= */
-const HERO_BG_IMAGES = [
-  "/hero/slide-1.jpg",
-  "/hero/slide-2.jpg",
-  "/hero/slide-3.jpg",
-  "/hero/slide-4.jpg",
-]; // replace with your images (1920x1080+ recommended)
+/** ---------- Config ---------- */
+const BG_IMG = "/greybackgound.jpg"; // change if needed
 
-const ROLES = ["Web Designer", "3D Artist", "Illustrator"]; // typed line
-const PERSON_NAME = "Alex Walker";
-
-/** Tiny typed effect (no deps) */
-function useTypewriter(words: string[], speed = 55, pause = 1100) {
-  const [i, setI] = useState(0);
-  const [len, setLen] = useState(0);
-  const [back, setBack] = useState(false);
-  const t = useRef<number | null>(null);
-  const word = words[i] ?? "";
+/** Tiny typewriter effect (no dependency) */
+function useTypewriter(words: string[], speed = 60, pause = 1200) {
+  const [index, setIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
+  const [reverse, setReverse] = useState(false);
+  const loopRef = useRef<number | null>(null);
+  const word = words[index] ?? "";
 
   useEffect(() => {
     const tick = () => {
-      if (!back) {
-        if (len < word.length) {
-          setLen((v) => v + 1);
-          t.current = window.setTimeout(tick, speed);
+      if (!reverse) {
+        if (subIndex < word.length) {
+          setSubIndex((s) => s + 1);
+          loopRef.current = window.setTimeout(tick, speed);
         } else {
-          t.current = window.setTimeout(() => setBack(true), pause);
+          loopRef.current = window.setTimeout(() => setReverse(true), pause);
         }
       } else {
-        if (len > 0) {
-          setLen((v) => v - 1);
-          t.current = window.setTimeout(tick, Math.max(40, speed - 10));
+        if (subIndex > 0) {
+          setSubIndex((s) => s - 1);
+          loopRef.current = window.setTimeout(tick, Math.max(40, speed - 10));
         } else {
-          setBack(false);
-          setI((v) => (v + 1) % words.length);
-          t.current = window.setTimeout(tick, 250);
+          setReverse(false);
+          setIndex((i) => (i + 1) % words.length);
+          loopRef.current = window.setTimeout(tick, 250);
         }
       }
     };
-    t.current = window.setTimeout(tick, 250);
+    loopRef.current = window.setTimeout(tick, 250);
     return () => {
-      if (t.current) clearTimeout(t.current);
+      if (loopRef.current) window.clearTimeout(loopRef.current);
     };
-  }, [word.length, speed, pause, back, len, words]);
+  }, [index, reverse, subIndex, speed, pause, word.length]);
 
-  return word.slice(0, len);
+  return word.slice(0, subIndex);
 }
 
-const IgniteHero: React.FC = () => {
-  const typed = useTypewriter(useMemo(() => ROLES, []), 55, 1100);
-
-  /** Build slide objects with different pan directions */
-  const slides = useMemo(
-    () =>
-      HERO_BG_IMAGES.map((src, idx) => ({
-        src,
-        delay: `${idx * 8}s`, // total cycle = images * 8s (tweak below in CSS)
-        // subtle pan directions per slide
-        fromX: idx % 2 === 0 ? "0%" : "2%",
-        fromY: idx % 3 === 0 ? "0%" : "-2%",
-        toX: idx % 2 === 0 ? "3%" : "-3%",
-        toY: idx % 3 === 0 ? "-3%" : "3%",
-      })),
-    []
+const Hero: React.FC = () => {
+  const typed = useTypewriter(
+    useMemo(
+      () => [
+        "Used Cooking Oil Pickup",
+        "Biodiesel Production",
+        "Circular Economy Partner",
+      ],
+      []
+    ),
+    55,
+    1100
   );
 
   return (
     <section
       id="hero"
       className="relative min-h-screen overflow-hidden text-white"
-      aria-label="Ignite style hero"
+      aria-label="Super Energy Hero Section"
     >
-      {/* ===== BACKGROUND: multi-image Ken Burns with crossfade ===== */}
-      <div className="absolute inset-0" aria-hidden="true">
-        {slides.map((s, i) => (
-          <div
-            key={s.src}
-            className="absolute inset-0 bg-center bg-cover will-change-transform slide"
-            style={
-              {
-                backgroundImage: `url('${s.src}')`,
-                // delays stagger the fade+kenburns so one is visible at a time
-                ["--delay" as any]: s.delay,
-                ["--fromX" as any]: s.fromX,
-                ["--fromY" as any]: s.fromY,
-                ["--toX" as any]: s.toX,
-                ["--toY" as any]: s.toY,
-              } as React.CSSProperties
-            }
-          />
-        ))}
-        {/* dark overlay, like Ignite's .layer-dark-03 */}
+      {/* ===== Background (Ken Burns) ===== */}
+      <div
+        className="absolute inset-0"
+        aria-hidden="true"
+      >
+        <div
+          className="absolute inset-0 bg-center bg-cover will-change-transform animate-kenburns"
+          style={{ backgroundImage: `url('${BG_IMG}')` }}
+        />
+        {/* Dark gradient overlay like Ignite's layer-dark-03 */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/30" />
       </div>
 
-      {/* ===== TOP BAR (logo left, subscribe/menu right) ===== */}
+      {/* ===== Top bar (logo left, actions right) ===== */}
       <div className="relative z-10">
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between py-6">
+            {/* Logo */}
             <a href="/" className="inline-flex items-center gap-3">
-              <img src="/logo.svg" alt="Logo" className="h-8 w-auto" />
-              <span className="sr-only">Brand</span>
+              <img
+                src="/logo.svg"
+                alt="Super Energy"
+                className="h-8 w-auto"
+              />
+              <span className="sr-only">Super Energy</span>
             </a>
 
+            {/* Right actions (Subscribe / Menu placeholder) */}
             <div className="flex items-center gap-3">
               <Button
-                className="bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur px-4 py-2 rounded-md"
                 variant="secondary"
+                className="bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur px-4 py-2 rounded-md"
               >
                 <span className="mr-2">✉️</span> Subscribe
               </Button>
               <button
-                aria-label="Open menu"
                 className="relative h-11 w-11 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 backdrop-blur transition"
+                aria-label="Open menu"
               >
                 <span className="absolute left-1/2 top-1/2 block h-4 w-5 -translate-x-1/2 -translate-y-1/2">
-                  <span className="absolute inset-x-0 top-0 h-0.5 bg-white rounded" />
-                  <span className="absolute inset-x-0 top-1/2 -mt-0.5 h-0.5 bg-white rounded" />
-                  <span className="absolute inset-x-0 bottom-0 h-0.5 bg-white rounded" />
+                  <span className="absolute inset-x-0 top-0 h-0.5 bg-white rounded"></span>
+                  <span className="absolute inset-x-0 top-1/2 -mt-0.5 h-0.5 bg-white rounded"></span>
+                  <span className="absolute inset-x-0 bottom-0 h-0.5 bg-white rounded"></span>
                 </span>
               </button>
             </div>
@@ -128,131 +113,108 @@ const IgniteHero: React.FC = () => {
         </div>
       </div>
 
-      {/* ===== MAIN (left column like Ignite) ===== */}
+      {/* ===== Main content (left-aligned like Ignite) ===== */}
       <div className="relative z-10 min-h-[calc(100vh-5rem)] flex items-center">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-12">
             <div className="lg:col-span-7">
-              {/* small subtitle badge */}
+              {/* Subtitle */}
               <div className="mb-5">
-                <Badge className="px-4 py-2 text-sm font-medium bg-white/10 text-white border border-white/20 backdrop-blur">
-                  Let&apos;s meet
+                <Badge
+                  variant="secondary"
+                  className="px-4 py-2 text-sm font-medium bg-white/10 text-white border border-white/20 backdrop-blur"
+                >
+                  Let’s meet
                 </Badge>
               </div>
 
-              {/* headline + typed */}
+              {/* Headline with typewriter line (Ignite style) */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1]">
-                I&apos;m {PERSON_NAME}
-                <br />
-                <span className="inline-block min-w-[10ch]">
-                  <span className="font-semibold">{typed}</span>
-                  <span className="inline-block w-3 ml-1 align-baseline animate-caret">
-                    |
-                  </span>
+                Transform Your{" "}
+                <span className="bg-gradient-to-r from-emerald-300 to-green-500 bg-clip-text text-transparent">
+                  Waste
+                </span>
+                <br className="hidden sm:block" />
+                Power the{" "}
+                <span className="bg-gradient-to-r from-emerald-300 to-green-500 bg-clip-text text-transparent">
+                  Future
                 </span>
               </h1>
 
-              {/* CTA buttons (Download CV + Say hello) */}
-              <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <a
-                  href="/cv.pdf"
-                  className="group inline-flex items-center justify-center rounded-md px-6 py-4 text-base font-medium bg-white text-black hover:bg-white/90 transition shadow-lg"
-                >
-                  <span className="mr-3">Download CV</span>
-                  <span className="relative inline-flex h-5 w-5 items-center justify-center overflow-hidden">
-                    <span className="absolute translate-x-0 group-hover:-translate-x-6 transition">
-                      →
-                    </span>
-                    <span className="absolute translate-x-6 group-hover:translate-x-0 transition">
-                      →
-                    </span>
-                  </span>
-                </a>
+              {/* Animated role line (like Ignite's typed roles) */}
+              <p className="mt-4 text-xl sm:text-2xl text-white/90 min-h-[2.5rem]">
+                <span className="opacity-80">We are&nbsp;</span>
+                <span className="font-semibold">{typed}</span>
+                <span className="inline-block w-3 ml-1 animate-caret">|</span>
+              </p>
 
-                <a
-                  href="#sayhello"
-                  className="inline-flex items-center justify-center rounded-md px-6 py-4 text-base font-medium border border-white/30 text-white hover:bg-white/10 backdrop-blur transition"
+              {/* Description */}
+              <p className="mt-6 max-w-2xl text-base sm:text-lg lg:text-xl text-white/80">
+                Join the green energy movement by recycling your{" "}
+                <span className="text-emerald-300 font-semibold">
+                  used cooking oil
+                </span>{" "}
+                into clean, efficient biodiesel. Together, we can reduce pollution and
+                build a sustainable tomorrow.
+              </p>
+
+              {/* CTAs */}
+              <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                <Button
+                  size="lg"
+                  className="w-full sm:w-auto text-white text-lg px-8 py-6 rounded-md bg-gradient-to-r from-emerald-500 to-green-700 hover:from-emerald-600 hover:to-green-800 shadow-xl"
+                >
+                  Become a Partner
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="w-full sm:w-auto border-white/30 text-white hover:bg-white/10 backdrop-blur"
                 >
                   Say hello
-                </a>
+                </Button>
+              </div>
+
+              {/* Trust badges (kept from your version) */}
+              <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl">
+                {["FSSAI Approved", "Carbon Offset", "100% Eco-Friendly", "Free Pickup"].map(
+                  (text) => (
+                    <div
+                      key={text}
+                      className="flex items-center gap-2 text-sm text-white/80"
+                    >
+                      <CheckCircle className="h-4 w-4 text-emerald-300" />
+                      {text}
+                    </div>
+                  )
+                )}
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* ===== Mobile footer like Ignite (socials + copyright) ===== */}
-        <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 block lg:hidden">
-          <div className="pointer-events-auto px-6 py-5">
-            <div className="flex items-center justify-between">
-              <ul className="flex items-center gap-4">
-                <li>
-                  <a className="btn-s-text text-white/80 hover:text-white" href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-                    Fb
-                  </a>
-                </li>
-                <li>
-                  <a className="btn-s-text text-white/80 hover:text-white" href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-                    In
-                  </a>
-                </li>
-                <li>
-                  <a className="btn-s-text text-white/80 hover:text-white" href="https://x.com/" target="_blank" rel="noreferrer">
-                    X
-                  </a>
-                </li>
-                <li>
-                  <a className="btn-s-text text-white/80 hover:text-white" href="https://www.behance.net/" target="_blank" rel="noreferrer">
-                    Be
-                  </a>
-                </li>
-              </ul>
-              <p className="text-white/70 text-sm">
-                © <a href="https://1.envato.market/EKA9WD" target="_blank" rel="noreferrer" className="underline-offset-2 hover:underline">Mix Design</a>, 2025
-              </p>
-            </div>
+            {/* Right side intentionally left empty to mirror Ignite's airy split layout */}
           </div>
         </div>
       </div>
 
-      {/* ===== Component-scoped styles (Ken Burns + Crossfade + Caret) ===== */}
+      {/* ===== Styles for Ken Burns + caret (component-scoped) ===== */}
       <style>{`
-        /* Total cycle time = 8s * ${HERO_BG_IMAGES.length}.
-           Each slide uses the same animations, offset by --delay. */
-
-        .slide {
-          opacity: 0;
-          animation:
-            slideFade ${8 * HERO_BG_IMAGES.length}s linear infinite,
-            kenburns ${8 * HERO_BG_IMAGES.length}s ease-in-out infinite;
-          animation-delay: var(--delay);
-          transform: translateZ(0); /* GPU hint */
+        @keyframes kenburnsZoom {
+          0%   { transform: scale(1) translate(0, 0); }
+          60%  { transform: scale(1.12) translate(2%, -2%); }
+          100% { transform: scale(1.2) translate(3%, -3%); }
         }
-
-        /* Crossfade: each slide is fully visible for 25% of its window (≈2s if 8s per slide) */
-        @keyframes slideFade {
-          /* We create a 0–100% timeline per slide window */
-          0%   { opacity: 0; }
-          5%   { opacity: 1; }
-          25%  { opacity: 1; }
-          30%  { opacity: 0; }
-          100% { opacity: 0; }
+        .animate-kenburns {
+          animation: kenburnsZoom 22s ease-in-out infinite alternate;
         }
-
-        /* Ken Burns: gentle zoom + subtle pan per slide via CSS vars */
-        @keyframes kenburns {
-          0%   { transform: scale(1) translate(var(--fromX, 0), var(--fromY, 0)); }
-          100% { transform: scale(1.15) translate(var(--toX, 0), var(--toY, 0)); }
-        }
-
-        /* Blinking caret for typed line */
         @keyframes blinkCaret {
           0%, 45% { opacity: 1; }
           46%, 100% { opacity: 0; }
         }
-        .animate-caret { animation: blinkCaret 900ms step-end infinite; }
+        .animate-caret {
+          animation: blinkCaret 900ms step-end infinite;
+        }
       `}</style>
     </section>
   );
 };
 
-export default IgniteHero;
+export default Hero;
