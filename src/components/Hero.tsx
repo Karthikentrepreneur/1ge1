@@ -98,47 +98,10 @@ const IgniteHero: React.FC = () => {
       </div>
 
       {/* ===== TOP BAR (logo left, subscribe/menu right) ===== */}
-      <div className="relative z-10">
-        <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between py-6">
-            <a href="/" className="inline-flex items-center gap-3">
-              <img src="/logo.svg" alt="Logo" className="h-8 w-auto" />
-              <span className="sr-only">Brand</span>
-            </a>
-
-            <div className="flex items-center gap-3">
-              <Button
-                className="bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur px-4 py-2 rounded-md"
-                variant="secondary"
-              >
-                <span className="mr-2">✉️</span> Subscribe
-              </Button>
-              <button
-                aria-label="Open menu"
-                className="relative h-11 w-11 rounded-full border border-white/25 bg-white/10 hover:bg-white/20 backdrop-blur transition"
-              >
-                <span className="absolute left-1/2 top-1/2 block h-4 w-5 -translate-x-1/2 -translate-y-1/2">
-                  <span className="absolute inset-x-0 top-0 h-0.5 bg-white rounded" />
-                  <span className="absolute inset-x-0 top-1/2 -mt-0.5 h-0.5 bg-white rounded" />
-                  <span className="absolute inset-x-0 bottom-0 h-0.5 bg-white rounded" />
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+     
 
       {/* ===== MAIN (left column like Ignite) ===== */}
-      <div className="relative z-10 min-h-[calc(100vh-5rem)] flex items-center">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-12">
-            <div className="lg:col-span-7">
-              {/* small subtitle badge */}
-              <div className="mb-5">
-                <Badge className="px-4 py-2 text-sm font-medium bg-white/10 text-white border border-white/20 backdrop-blur">
-                  Let&apos;s meet
-                </Badge>
-              </div>
+      
 
               {/* headline + typed */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1]">
