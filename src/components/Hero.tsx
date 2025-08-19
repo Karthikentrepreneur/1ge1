@@ -1,3 +1,4 @@
+
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -97,82 +98,79 @@ const IgniteHero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/30" />
       </div>
 
-      {/* ===== TOP BAR (logo left, subscribe/menu right) ===== */}
-     
+      {/* ===== MAIN CONTENT ===== */}
+      <div className="relative z-10 flex min-h-screen items-center">
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl">
+            {/* headline + typed */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1]">
+              I&apos;m {PERSON_NAME}
+              <br />
+              <span className="inline-block min-w-[10ch]">
+                <span className="font-semibold">{typed}</span>
+                <span className="inline-block w-3 ml-1 align-baseline animate-caret">
+                  |
+                </span>
+              </span>
+            </h1>
 
-      {/* ===== MAIN (left column like Ignite) ===== */}
-      
-
-              {/* headline + typed */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1]">
-                I&apos;m {PERSON_NAME}
-                <br />
-                <span className="inline-block min-w-[10ch]">
-                  <span className="font-semibold">{typed}</span>
-                  <span className="inline-block w-3 ml-1 align-baseline animate-caret">
-                    |
+            {/* CTA buttons (Download CV + Say hello) */}
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <a
+                href="/cv.pdf"
+                className="group inline-flex items-center justify-center rounded-md px-6 py-4 text-base font-medium bg-white text-black hover:bg-white/90 transition shadow-lg"
+              >
+                <span className="mr-3">Download CV</span>
+                <span className="relative inline-flex h-5 w-5 items-center justify-center overflow-hidden">
+                  <span className="absolute translate-x-0 group-hover:-translate-x-6 transition">
+                    →
+                  </span>
+                  <span className="absolute translate-x-6 group-hover:translate-x-0 transition">
+                    →
                   </span>
                 </span>
-              </h1>
+              </a>
 
-              {/* CTA buttons (Download CV + Say hello) */}
-              <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <a
-                  href="/cv.pdf"
-                  className="group inline-flex items-center justify-center rounded-md px-6 py-4 text-base font-medium bg-white text-black hover:bg-white/90 transition shadow-lg"
-                >
-                  <span className="mr-3">Download CV</span>
-                  <span className="relative inline-flex h-5 w-5 items-center justify-center overflow-hidden">
-                    <span className="absolute translate-x-0 group-hover:-translate-x-6 transition">
-                      →
-                    </span>
-                    <span className="absolute translate-x-6 group-hover:translate-x-0 transition">
-                      →
-                    </span>
-                  </span>
-                </a>
-
-                <a
-                  href="#sayhello"
-                  className="inline-flex items-center justify-center rounded-md px-6 py-4 text-base font-medium border border-white/30 text-white hover:bg-white/10 backdrop-blur transition"
-                >
-                  Say hello
-                </a>
-              </div>
+              <a
+                href="#sayhello"
+                className="inline-flex items-center justify-center rounded-md px-6 py-4 text-base font-medium border border-white/30 text-white hover:bg-white/10 backdrop-blur transition"
+              >
+                Say hello
+              </a>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* ===== Mobile footer like Ignite (socials + copyright) ===== */}
-        <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 block lg:hidden">
-          <div className="pointer-events-auto px-6 py-5">
-            <div className="flex items-center justify-between">
-              <ul className="flex items-center gap-4">
-                <li>
-                  <a className="btn-s-text text-white/80 hover:text-white" href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-                    Fb
-                  </a>
-                </li>
-                <li>
-                  <a className="btn-s-text text-white/80 hover:text-white" href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-                    In
-                  </a>
-                </li>
-                <li>
-                  <a className="btn-s-text text-white/80 hover:text-white" href="https://x.com/" target="_blank" rel="noreferrer">
-                    X
-                  </a>
-                </li>
-                <li>
-                  <a className="btn-s-text text-white/80 hover:text-white" href="https://www.behance.net/" target="_blank" rel="noreferrer">
-                    Be
-                  </a>
-                </li>
-              </ul>
-              <p className="text-white/70 text-sm">
-                © <a href="https://1.envato.market/EKA9WD" target="_blank" rel="noreferrer" className="underline-offset-2 hover:underline">Mix Design</a>, 2025
-              </p>
-            </div>
+      {/* ===== Mobile footer like Ignite (socials + copyright) ===== */}
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 block lg:hidden">
+        <div className="pointer-events-auto px-6 py-5">
+          <div className="flex items-center justify-between">
+            <ul className="flex items-center gap-4">
+              <li>
+                <a className="btn-s-text text-white/80 hover:text-white" href="https://www.facebook.com/" target="_blank" rel="noreferrer">
+                  Fb
+                </a>
+              </li>
+              <li>
+                <a className="btn-s-text text-white/80 hover:text-white" href="https://www.instagram.com/" target="_blank" rel="noreferrer">
+                  In
+                </a>
+              </li>
+              <li>
+                <a className="btn-s-text text-white/80 hover:text-white" href="https://x.com/" target="_blank" rel="noreferrer">
+                  X
+                </a>
+              </li>
+              <li>
+                <a className="btn-s-text text-white/80 hover:text-white" href="https://www.behance.net/" target="_blank" rel="noreferrer">
+                  Be
+                </a>
+              </li>
+            </ul>
+            <p className="text-white/70 text-sm">
+              © <a href="https://1.envato.market/EKA9WD" target="_blank" rel="noreferrer" className="underline-offset-2 hover:underline">Mix Design</a>, 2025
+            </p>
           </div>
         </div>
       </div>
