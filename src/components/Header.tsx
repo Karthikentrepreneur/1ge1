@@ -29,22 +29,7 @@ const Header = () => {
   };
   return <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border shadow-soft">
       <div className="container mx-auto px-4">
-        {/* Top bar with contact info */}
-        <div className="hidden md:flex items-center justify-between py-2 text-sm text-muted-foreground border-b border-border/50">
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2">
-              <Phone className="h-3 w-3" />
-              <span>+65 6XXX XXXX</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Mail className="h-3 w-3" />
-              <span>info@superenergy.sg</span>
-            </div>
-          </div>
-          <div className="text-primary font-medium">
-            Join the Green Revolution Today!
-          </div>
-        </div>
+        
 
         {/* Main navigation */}
         <div className="flex items-center justify-between py-4">
