@@ -3,11 +3,11 @@ import { Phone, Mail, MapPin } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer id="footer" className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
-          {/* Company Info */}
-          <div className="lg:col-span-2">
+        <div className="grid md:grid-cols-2 gap-12">
+          {/* About Us - Left Side */}
+          <div>
             <div className="flex items-center gap-2 mb-6">
               <img 
                 src="/globallogo.png" 
@@ -15,8 +15,20 @@ const Footer = () => {
                 className="h-12 w-auto object-contain"
               />
             </div>
-            
-            <div className="space-y-4 mb-8">
+            <h4 className="text-xl font-semibold mb-4 text-white">About Us</h4>
+            <p className="text-gray-400 leading-relaxed">
+              At the forefront of innovation, 1 Global Enterprises is driving progress across
+              renewable energy, food technology, supply chain solutions, software development,
+              and lubricant distribution. We are committed to delivering sustainable growth, 
+              cutting-edge technologies, and operational excellence that empower businesses 
+              worldwide.
+            </p>
+          </div>
+
+          {/* Contact Details - Right Side */}
+          <div>
+            <h4 className="text-xl font-semibold mb-6 text-white">Contact Us</h4>
+            <div className="space-y-6">
               <div className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-[#16C79A] mt-1 flex-shrink-0" />
                 <div className="text-gray-300 leading-relaxed">
@@ -27,8 +39,8 @@ const Footer = () => {
                 </div>
               </div>
               
-              <div className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-[#16C79A]" />
+              <div className="flex items-start gap-3">
+                <Phone className="h-5 w-5 text-[#16C79A] mt-1 flex-shrink-0" />
                 <div className="space-y-1">
                   <div className="text-gray-300">+65 69080838</div>
                   <div className="text-gray-300">+65 69080849</div>
@@ -41,15 +53,6 @@ const Footer = () => {
                 <span className="text-gray-300">jp@1ge.sg</span>
               </div>
             </div>
-          </div>
-
-          {/* Company Description */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4 text-white">About Us</h4>
-            <p className="text-gray-400 leading-relaxed">
-              Leading the way in renewable energy, food technology, supply chain solutions, 
-              software development, and lubricant distribution across Singapore and beyond.
-            </p>
           </div>
         </div>
       </div>

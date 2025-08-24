@@ -43,6 +43,13 @@ function useTypewriter(words: string[], speed = 55, pause = 1100) {
 const IgniteHero: React.FC = () => {
   const typed = useTypewriter(useMemo(() => ROLES, []), 55, 1100);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   // Slides: use background-position panning (not element translate)
   const slides = useMemo(
     () =>
@@ -89,30 +96,30 @@ const IgniteHero: React.FC = () => {
               </span>
             </h1>
 
-            {/* Buttons with solid brand backgrounds */}
+            {/* Updated Buttons with navigation */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <a
-                href="/services"
+              <button
+                onClick={() => scrollToSection('about')}
                 className="group inline-flex items-center justify-center rounded-md px-6 py-4 text-base font-medium
                            bg-[#16C79A] text-white hover:brightness-110 active:brightness-95 transition shadow-lg"
               >
-                <span className="mr-3">Our Services</span>
+                <span className="mr-3">About Us</span>
                 <span className="relative inline-flex h-5 w-5 items-center justify-center overflow-hidden">
                   <span className="absolute translate-x-0 group-hover:-translate-x-6 transition">→</span>
                   <span className="absolute translate-x-6 group-hover:translate-x-0 transition">→</span>
                 </span>
-              </a>
-              <a
-                href="/contact"
+              </button>
+              <button
+                onClick={() => scrollToSection('group-companies')}
                 className="group inline-flex items-center justify-center rounded-md px-6 py-4 text-base font-medium
                            bg-[#0A84FF] text-white hover:brightness-110 active:brightness-95 transition shadow-lg"
               >
-                <span className="mr-3">Contact Us</span>
+                <span className="mr-3">Our Companies</span>
                 <span className="relative inline-flex h-5 w-5 items-center justify-center overflow-hidden">
                   <span className="absolute translate-x-0 group-hover:-translate-x-6 transition">→</span>
                   <span className="absolute translate-x-6 group-hover:translate-x-0 transition">→</span>
                 </span>
-              </a>
+              </button>
             </div>
           </div>
         </div>

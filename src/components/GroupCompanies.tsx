@@ -5,34 +5,40 @@ import { Card } from "@/components/ui/card";
 const GroupCompanies: React.FC = () => {
   const companies = [
     {
-      name: "Super Energy",
-      logo: "/lovable-uploads/1f4bd614-0ece-402a-ac57-f1dcf6bd37ff.png",
-      solution: "Renewable Energy Solutions",
-      website: "https://superenergy.sg"
+      name: "GC",
+      logo: "/lovable-uploads/579c1b5c-1d47-4d12-af61-1e94945ab0b9.png", // Using the uploaded image as placeholder
+      solution: "Specialized in Consolidation & Freight Management",
+      website: "http://globalconsol.com/"
     },
     {
-      name: "Global Logistics",
-      logo: "/logitics.png",
-      solution: "Supply Chain & Logistics",
-      website: "https://globallogistics.sg"
+      name: "OECL",
+      logo: "/lovable-uploads/579c1b5c-1d47-4d12-af61-1e94945ab0b9.png", // Using the uploaded image as placeholder
+      solution: "Customized Supply Chain Solutions, Liquid Logistics, Projects & Freight Management",
+      website: "http://oecl.sg/"
     },
     {
-      name: "Tech Innovations",
-      logo: "/globallogo.png",
-      solution: "Software Development",
-      website: "https://techinnovations.sg"
+      name: "MOLTECH",
+      logo: "/lovable-uploads/579c1b5c-1d47-4d12-af61-1e94945ab0b9.png", // Using the uploaded image as placeholder
+      solution: "Renewal Energy Supplies & Clean Technology",
+      website: "http://moltechglobal.com/"
     },
     {
-      name: "Food Tech Solutions",
-      logo: "/globallogo.png",
-      solution: "Food Technology",
-      website: "https://foodtech.sg"
+      name: "CITYGVN",
+      logo: "/lovable-uploads/579c1b5c-1d47-4d12-af61-1e94945ab0b9.png", // Using the uploaded image as placeholder
+      solution: "Products Distribution & Marketing Company",
+      website: "http://cityvenergy.com/"
     },
     {
-      name: "Premium Lubricants",
-      logo: "/enoc.png",
-      solution: "Lubricant Distribution",
-      website: "https://premiumlubricants.sg"
+      name: "SHIPSOFT",
+      logo: "/lovable-uploads/579c1b5c-1d47-4d12-af61-1e94945ab0b9.png", // Using the uploaded image as placeholder
+      solution: "Maritime Software Solutions",
+      website: "http://shipsoft.sg/"
+    },
+    {
+      name: "GGL",
+      logo: "/lovable-uploads/579c1b5c-1d47-4d12-af61-1e94945ab0b9.png", // Using the uploaded image as placeholder
+      solution: "3 PL & Freight Management",
+      website: "http://ggl.sg/"
     },
   ];
 
