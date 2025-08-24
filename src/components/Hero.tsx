@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 /** ========= CONFIG ========= */
 const HERO_BG_IMAGES = [
   "/hero1.jpg",
-  "/hero2.png",
+  "/hero21.png",
   "/logitics.png",
   "/hero3.webp",
 ]; // replace with your images (1920x1080+ recommended)
