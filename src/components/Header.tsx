@@ -38,12 +38,11 @@ const Header = () => {
               <img
                 alt="Super Energy"
                 className="h-12 w-auto object-contain"
-                src="/lovable-uploads/a3ad0f90-3f30-4006-8027-6d25a277ad0e.png"
+                src="/globallogo.png"
               />
             </div>
             <div>
               <p className="text-xs text-muted-foreground">
-                Clean Fuel Solutions
               </p>
             </div>
           </Link>
