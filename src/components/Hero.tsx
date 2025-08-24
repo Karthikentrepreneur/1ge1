@@ -7,8 +7,8 @@ import { Badge } from "@/components/ui/badge";
 const HERO_BG_IMAGES = [
   "/hero1.jpg",
   "/hero22.png",
-  "/hero31.webp",
-  "/hero41.webp",
+  "/hero31.png",
+  "/hero41.png",
 ]; // replace with your images (1920x1080+ recommended)
 
 const ROLES = ["Web Designer", "3D Artist", "Illustrator"]; // typed line
