@@ -33,7 +33,7 @@ const AboutSection: React.FC = () => {
         {/* Image */}
         <div className="md:col-span-6">
           <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_60px_rgba(0,0,0,0.35)]">
-            <img src="/one-globe.png" // place this file in your /public folder
+            <img src="/logitics.png" // place this file in your /public folder
           alt="1 Global Enterprises — a brighter, cleaner, connected world" className="w-full h-[340px] md:h-[460px] object-cover animate-kenburns" loading="lazy" />
           </div>
         </div>
