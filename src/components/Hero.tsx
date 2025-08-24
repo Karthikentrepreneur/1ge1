@@ -81,7 +81,7 @@ const IgniteHero: React.FC = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-2xl">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">
-              I&apos;m {PERSON_NAME}
+              We {PERSON_NAME}
               <br />
               <span className="inline-block min-w-[10ch]">
                 <span className="font-semibold">{typed}</span>
