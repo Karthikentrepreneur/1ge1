@@ -1,12 +1,19 @@
+
 import { Phone, Mail, MapPin } from "lucide-react";
+
 const Footer = () => {
-  return <footer id="footer" className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1">
-        <div className="grid md:grid-cols-2 gap-55">
+  return (
+    <footer id="footer" className="bg-gray-900 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid md:grid-cols-2 gap-12">
           {/* About Us - Left Side */}
           <div>
             <div className="flex items-center gap-2 mb-6">
-              <img src="/globallogo.png" alt="1 Global Enterprises" className="h-12 w-auto object-contain" />
+              <img 
+                src="/globallogo.png" 
+                alt="1 Global Enterprises" 
+                className="h-12 w-auto object-contain"
+              />
             </div>
             <h4 className="text-xl font-semibold mb-4 text-white">About Us</h4>
             <p className="text-gray-400 leading-relaxed">
@@ -60,6 +67,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;
