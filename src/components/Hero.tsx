@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 
 /** ========= CONFIG ========= */
 const HERO_BG_IMAGES = [
-  "/renewableenergy.png",
+  "/hero1.jpg",
   "/enoc.png",
   "/logitics.png",
   "/hero/slide-4.jpg",
