@@ -8,7 +8,7 @@ const HERO_BG_IMAGES = [
   "/hero1.jpg",
   "/hero2.png",
   "/logitics.png",
-  "/hero/slide-4.jpg",
+  "/hero3.webp",
 ]; // replace with your images (1920x1080+ recommended)
 
 const ROLES = ["Web Designer", "3D Artist", "Illustrator"]; // typed line
