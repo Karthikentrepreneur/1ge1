@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 
 /** ========= CONFIG ========= */
 const HERO_BG_IMAGES = ["/hero1.jpg", "/hero22.png", "/hero31.png", "/hero41.png"];
-const ROLES = ["Web Designer", "3D Artist", "Illustrator"];
+const ROLES = ["Food Technology", "lubricant distribution", "supply chain solutions", "software development"];
 const PERSON_NAME = "Invested In";
 
 /** Tiny typed effect (no deps) */
