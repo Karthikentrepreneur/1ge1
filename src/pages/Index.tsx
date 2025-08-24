@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import WhyBiodiesel from "@/components/WhyBiodiesel";
 import HowItWorks from "@/components/HowItWorks";
 import Stats from "@/components/Stats";
+import AboutSection from "@/components/AboutSection";
 import ForHouseholds from "@/components/ForHouseholds";
 import ForBusinesses from "@/components/ForBusinesses";
 import Contact from "@/components/Contact";
@@ -14,6 +15,7 @@ const Index = () => {
       <Header />
       <Hero />
       <Stats />
+      <AboutSection />
       <HowItWorks />
       <WhyBiodiesel />
       <ForHouseholds />
