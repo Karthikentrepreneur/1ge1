@@ -6,13 +6,13 @@ import { Badge } from "@/components/ui/badge";
 /** ========= CONFIG ========= */
 const HERO_BG_IMAGES = [
   "/hero1.jpg",
-  "/hero21.png",
-  "/logitics.png",
-  "/hero3.webp",
+  "/hero22.png",
+  "/hero31.webp",
+  "/hero41.webp",
 ]; // replace with your images (1920x1080+ recommended)
 
 const ROLES = ["Web Designer", "3D Artist", "Illustrator"]; // typed line
-const PERSON_NAME = "Alex Walker";
+const PERSON_NAME = "Invested In";
 
 /** Tiny typed effect (no deps) */
 function useTypewriter(words: string[], speed = 55, pause = 1100) {
