@@ -6,37 +6,37 @@ const GroupCompanies: React.FC = () => {
   const companies = [
     {
       name: "GC",
-      logo: "/lovable-uploads/579c1b5c-1d47-4d12-af61-1e94945ab0b9.png", // Using the uploaded image as placeholder
+      logo: "/logosss02.png", // Using the uploaded image as placeholder
       solution: "Specialized in Consolidation & Freight Management",
       website: "http://globalconsol.com/"
     },
     {
       name: "OECL",
-      logo: "/lovable-uploads/579c1b5c-1d47-4d12-af61-1e94945ab0b9.png", // Using the uploaded image as placeholder
+      logo: "/logosss03.png", // Using the uploaded image as placeholder
       solution: "Customized Supply Chain Solutions, Liquid Logistics, Projects & Freight Management",
       website: "http://oecl.sg/"
     },
     {
       name: "MOLTECH",
-      logo: "/lovable-uploads/579c1b5c-1d47-4d12-af61-1e94945ab0b9.png", // Using the uploaded image as placeholder
+      logo: "/logosss04.png", // Using the uploaded image as placeholder
       solution: "Renewal Energy Supplies & Clean Technology",
       website: "http://moltechglobal.com/"
     },
     {
-      name: "CITYGVN",
-      logo: "/lovable-uploads/579c1b5c-1d47-4d12-af61-1e94945ab0b9.png", // Using the uploaded image as placeholder
+      name: "CITYGN",
+      logo: "/logosss05.png", // Using the uploaded image as placeholder
       solution: "Products Distribution & Marketing Company",
       website: "http://cityvenergy.com/"
     },
     {
       name: "SHIPSOFT",
-      logo: "/lovable-uploads/579c1b5c-1d47-4d12-af61-1e94945ab0b9.png", // Using the uploaded image as placeholder
+      logo: "/logosss06.png", // Using the uploaded image as placeholder
       solution: "Maritime Software Solutions",
       website: "http://shipsoft.sg/"
     },
     {
       name: "GGL",
-      logo: "/lovable-uploads/579c1b5c-1d47-4d12-af61-1e94945ab0b9.png", // Using the uploaded image as placeholder
+      logo: "/logosss01.png", // Using the uploaded image as placeholder
       solution: "3 PL & Freight Management",
       website: "http://ggl.sg/"
     },
