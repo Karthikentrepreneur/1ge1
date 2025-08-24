@@ -28,7 +28,7 @@ const Header = () => {
 
   // ✅ Transparent header only on home page
   const isHeroPage = location.pathname === "/";
-  return <header className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-sm shadow-soft transition-colors ${isHeroPage ? "bg-transparent" // transparent for hero
+  return <header className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-sm shadow-soft transition-colors ${isHeroPage ? "bg-white" // transparent for hero
   : "bg-white border-b border-border" // white + border for all other pages
   }`}>
       <div className="container mx-auto px-4 bg-slate-50">
