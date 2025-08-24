@@ -2,10 +2,8 @@
 // Renders ONLY your About Us content + one image (no extra packages)
 
 import React from "react";
-
 const AboutSection: React.FC = () => {
-  return (
-    <section id="about" className="container px-4 py-24">
+  return <section id="about" className="container px-4 py-24">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
         {/* Text */}
         <div className="md:col-span-6">
@@ -14,18 +12,18 @@ const AboutSection: React.FC = () => {
           </h2>
 
           <div className="space-y-4 text-lg md:text-xl leading-relaxed text-gray-300">
-            <p>
+            <p className="text-gray-950">
               At the forefront of innovation, 1 Global Enterprises is driving progress across
               renewable energy, food technology, supply chain solutions, software development,
               and lubricant distribution.
             </p>
-            <p>
+            <p className="text-gray-950">
               We are committed to delivering sustainable growth, cutting-edge technologies, and
               operational excellence that empower businesses worldwide. By combining innovation
               with responsibility, we provide impactful solutions that help industries thrive in a
               rapidly evolving global landscape.
             </p>
-            <p>
+            <p className="text-gray-950">
               With a clear vision for the future, 1 Global Enterprises is shaping a brighter, cleaner,
               and more connected world.
             </p>
@@ -35,12 +33,8 @@ const AboutSection: React.FC = () => {
         {/* Image */}
         <div className="md:col-span-6">
           <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-[0_12px_60px_rgba(0,0,0,0.35)]">
-            <img
-              src="/one-globe.png"     // place this file in your /public folder
-              alt="1 Global Enterprises — a brighter, cleaner, connected world"
-              className="w-full h-[340px] md:h-[460px] object-cover animate-kenburns"
-              loading="lazy"
-            />
+            <img src="/one-globe.png" // place this file in your /public folder
+          alt="1 Global Enterprises — a brighter, cleaner, connected world" className="w-full h-[340px] md:h-[460px] object-cover animate-kenburns" loading="lazy" />
           </div>
         </div>
       </div>
@@ -50,8 +44,6 @@ const AboutSection: React.FC = () => {
         @keyframes kenburns { from { transform: scale(1.03); } to { transform: scale(1.08); } }
         .animate-kenburns { animation: kenburns 9s ease-in-out infinite alternate; }
       `}</style>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutSection;
