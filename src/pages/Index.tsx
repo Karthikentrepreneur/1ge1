@@ -1,12 +1,8 @@
+
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import WhyBiodiesel from "@/components/WhyBiodiesel";
-import HowItWorks from "@/components/HowItWorks";
-import Stats from "@/components/Stats";
 import AboutSection from "@/components/AboutSection";
-import ForHouseholds from "@/components/ForHouseholds";
-import ForBusinesses from "@/components/ForBusinesses";
-import Contact from "@/components/Contact";
+import GroupCompanies from "@/components/GroupCompanies";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -15,11 +11,7 @@ const Index = () => {
       <Header />
       <Hero />
       <AboutSection />
-      <HowItWorks />
-      <WhyBiodiesel />
-      <ForHouseholds />
-      <ForBusinesses />
-      <Contact />
+      <GroupCompanies />
       <Footer />
     </div>
   );
