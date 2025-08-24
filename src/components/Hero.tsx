@@ -1,17 +1,8 @@
-
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 
 /** ========= CONFIG ========= */
-const HERO_BG_IMAGES = [
-  "/hero1.jpg",
-  "/hero22.png",
-  "/hero31.png",
-  "/hero41.png",
-]; // replace with your images (1920x1080+ recommended)
-
-const ROLES = ["Web Designer", "3D Artist", "Illustrator"]; // typed line
+const HERO_BG_IMAGES = ["/hero1.jpg", "/hero22.png", "/hero31.png", "/hero41.png"];
+const ROLES = ["Web Designer", "3D Artist", "Illustrator"];
 const PERSON_NAME = "Invested In";
 
 /** Tiny typed effect (no deps) */
@@ -43,9 +34,7 @@ function useTypewriter(words: string[], speed = 55, pause = 1100) {
       }
     };
     t.current = window.setTimeout(tick, 250);
-    return () => {
-      if (t.current) clearTimeout(t.current);
-    };
+    return () => t.current && clearTimeout(t.current);
   }, [word.length, speed, pause, back, len, words]);
 
   return word.slice(0, len);
@@ -59,8 +48,7 @@ const IgniteHero: React.FC = () => {
     () =>
       HERO_BG_IMAGES.map((src, idx) => ({
         src,
-        delay: `${idx * 8}s`, // total cycle = images * 8s (tweak below in CSS)
-        // subtle pan directions per slide
+        delay: `${idx * 8}s`,
         fromX: idx % 2 === 0 ? "0%" : "2%",
         fromY: idx % 3 === 0 ? "0%" : "-2%",
         toX: idx % 2 === 0 ? "3%" : "-3%",
@@ -70,21 +58,16 @@ const IgniteHero: React.FC = () => {
   );
 
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen overflow-hidden text-white"
-      aria-label="Ignite style hero"
-    >
-      {/* ===== BACKGROUND: multi-image Ken Burns with crossfade ===== */}
+    <section id="hero" className="relative min-h-screen text-white overflow-hidden" aria-label="Ignite style hero">
+      {/* ===== BACKGROUND: Ken Burns with crossfade ===== */}
       <div className="absolute inset-0" aria-hidden="true">
-        {slides.map((s, i) => (
+        {slides.map((s) => (
           <div
             key={s.src}
-            className="absolute inset-0 bg-center bg-cover will-change-transform slide"
+            className="slide"
             style={
               {
                 backgroundImage: `url('${s.src}')`,
-                // delays stagger the fade+kenburns so one is visible at a time
                 ["--delay" as any]: s.delay,
                 ["--fromX" as any]: s.fromX,
                 ["--fromY" as any]: s.fromY,
@@ -94,27 +77,34 @@ const IgniteHero: React.FC = () => {
             }
           />
         ))}
-        {/* dark overlay, like Ignite's .layer-dark-03 */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/30" />
+
+        {/* Brand-tinted overlay using logo colors */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0"
+               style={{
+                 background:
+                   "linear-gradient(120deg, rgba(22,199,154,0.60) 0%, rgba(18,181,208,0.55) 45%, rgba(10,132,255,0.50) 100%)",
+                 mixBlendMode: "multiply",
+               }}
+          />
+          {/* slight darkening for text legibility */}
+          <div className="absolute inset-0 bg-black/25" />
+        </div>
       </div>
 
       {/* ===== MAIN CONTENT ===== */}
       <div className="relative z-10 flex min-h-screen items-center">
         <div className="container mx-auto px-6">
           <div className="max-w-2xl">
-            {/* headline + typed */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1]">
               I&apos;m {PERSON_NAME}
               <br />
               <span className="inline-block min-w-[10ch]">
                 <span className="font-semibold">{typed}</span>
-                <span className="inline-block w-3 ml-1 align-baseline animate-caret">
-                  |
-                </span>
+                <span className="inline-block w-3 ml-1 align-baseline animate-caret">|</span>
               </span>
             </h1>
 
-            {/* CTA buttons (Download CV + Say hello) */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <a
                 href="/services"
@@ -122,12 +112,8 @@ const IgniteHero: React.FC = () => {
               >
                 <span className="mr-3">Our Services</span>
                 <span className="relative inline-flex h-5 w-5 items-center justify-center overflow-hidden">
-                  <span className="absolute translate-x-0 group-hover:-translate-x-6 transition">
-                    →
-                  </span>
-                  <span className="absolute translate-x-6 group-hover:translate-x-0 transition">
-                    →
-                  </span>
+                  <span className="absolute translate-x-0 group-hover:-translate-x-6 transition">→</span>
+                  <span className="absolute translate-x-6 group-hover:translate-x-0 transition">→</span>
                 </span>
               </a>
               <a
@@ -136,12 +122,8 @@ const IgniteHero: React.FC = () => {
               >
                 <span className="mr-3">Contact Us</span>
                 <span className="relative inline-flex h-5 w-5 items-center justify-center overflow-hidden">
-                  <span className="absolute translate-x-0 group-hover:-translate-x-6 transition">
-                    →
-                  </span>
-                  <span className="absolute translate-x-6 group-hover:translate-x-0 transition">
-                    →
-                  </span>
+                  <span className="absolute translate-x-0 group-hover:-translate-x-6 transition">→</span>
+                  <span className="absolute translate-x-6 group-hover:translate-x-0 transition">→</span>
                 </span>
               </a>
             </div>
@@ -149,56 +131,40 @@ const IgniteHero: React.FC = () => {
         </div>
       </div>
 
-      {/* ===== Mobile footer like Ignite (socials + copyright) ===== */}
+      {/* ===== Mobile footer ===== */}
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 block lg:hidden">
         <div className="pointer-events-auto px-6 py-5">
           <div className="flex items-center justify-between">
             <ul className="flex items-center gap-4">
-              <li>
-                <a className="btn-s-text text-white/80 hover:text-white" href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-                  Fb
-                </a>
-              </li>
-              <li>
-                <a className="btn-s-text text-white/80 hover:text-white" href="https://www.instagram.com/" target="_blank" rel="noreferrer">
-                  In
-                </a>
-              </li>
-              <li>
-                <a className="btn-s-text text-white/80 hover:text-white" href="https://x.com/" target="_blank" rel="noreferrer">
-                  X
-                </a>
-              </li>
-              <li>
-                <a className="btn-s-text text-white/80 hover:text-white" href="https://www.behance.net/" target="_blank" rel="noreferrer">
-                  Be
-                </a>
-              </li>
+              <li><a className="btn-s-text text-white/80 hover:text-white" href="https://www.facebook.com/" target="_blank" rel="noreferrer">Fb</a></li>
+              <li><a className="btn-s-text text-white/80 hover:text-white" href="https://www.instagram.com/" target="_blank" rel="noreferrer">In</a></li>
+              <li><a className="btn-s-text text-white/80 hover:text-white" href="https://x.com/" target="_blank" rel="noreferrer">X</a></li>
+              <li><a className="btn-s-text text-white/80 hover:text-white" href="https://www.behance.net/" target="_blank" rel="noreferrer">Be</a></li>
             </ul>
-            <p className="text-white/70 text-sm">
-              © <a href="https://1.envato.market/EKA9WD" target="_blank" rel="noreferrer" className="underline-offset-2 hover:underline">Mix Design</a>, 2025
-            </p>
+            <p className="text-white/70 text-sm">© <a href="https://1.envato.market/EKA9WD" target="_blank" rel="noreferrer" className="underline-offset-2 hover:underline">Mix Design</a>, 2025</p>
           </div>
         </div>
       </div>
 
-      {/* ===== Component-scoped styles (Ken Burns + Crossfade + Caret) ===== */}
+      {/* ===== Component-scoped styles ===== */}
       <style>{`
-        /* Total cycle time = 8s * ${HERO_BG_IMAGES.length}.
-           Each slide uses the same animations, offset by --delay. */
-
+        /* Force perfect cover on all engines (including iOS/older Safari) */
         .slide {
+          position: absolute;
+          inset: 0;
+          background-position: center center !important;
+          background-repeat: no-repeat !important;
+          background-size: cover !important;
+          will-change: transform, opacity;
           opacity: 0;
           animation:
             slideFade ${8 * HERO_BG_IMAGES.length}s linear infinite,
             kenburns ${8 * HERO_BG_IMAGES.length}s ease-in-out infinite;
           animation-delay: var(--delay);
-          transform: translateZ(0); /* GPU hint */
+          transform: translateZ(0);
         }
 
-        /* Crossfade: each slide is fully visible for 25% of its window (≈2s if 8s per slide) */
         @keyframes slideFade {
-          /* We create a 0–100% timeline per slide window */
           0%   { opacity: 0; }
           5%   { opacity: 1; }
           25%  { opacity: 1; }
@@ -206,18 +172,19 @@ const IgniteHero: React.FC = () => {
           100% { opacity: 0; }
         }
 
-        /* Ken Burns: gentle zoom + subtle pan per slide via CSS vars */
         @keyframes kenburns {
           0%   { transform: scale(1) translate(var(--fromX, 0), var(--fromY, 0)); }
           100% { transform: scale(1.15) translate(var(--toX, 0), var(--toY, 0)); }
         }
 
-        /* Blinking caret for typed line */
         @keyframes blinkCaret {
           0%, 45% { opacity: 1; }
           46%, 100% { opacity: 0; }
         }
         .animate-caret { animation: blinkCaret 900ms step-end infinite; }
+
+        /* Make sure the section height is respected on small viewports */
+        #hero { min-height: 100svh; }
       `}</style>
     </section>
   );
