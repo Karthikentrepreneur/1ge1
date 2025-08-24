@@ -1,51 +1,63 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
-/* CONFIG */
+/** ========= CONFIG ========= */
 const HERO_BG_IMAGES = ["/hero1.jpg", "/hero22.png", "/hero31.png", "/hero41.png"];
 const ROLES = ["Web Designer", "3D Artist", "Illustrator"];
 const PERSON_NAME = "Invested In";
 
+/** Tiny typed effect (no deps) */
 function useTypewriter(words: string[], speed = 55, pause = 1100) {
   const [i, setI] = useState(0);
   const [len, setLen] = useState(0);
   const [back, setBack] = useState(false);
   const t = useRef<number | null>(null);
   const word = words[i] ?? "";
+
   useEffect(() => {
     const tick = () => {
       if (!back) {
-        if (len < word.length) { setLen(v => v + 1); t.current = window.setTimeout(tick, speed); }
-        else { t.current = window.setTimeout(() => setBack(true), pause); }
+        if (len < word.length) {
+          setLen((v) => v + 1);
+          t.current = window.setTimeout(tick, speed);
+        } else {
+          t.current = window.setTimeout(() => setBack(true), pause);
+        }
       } else {
-        if (len > 0) { setLen(v => v - 1); t.current = window.setTimeout(tick, Math.max(40, speed - 10)); }
-        else { setBack(false); setI(v => (v + 1) % words.length); t.current = window.setTimeout(tick, 250); }
+        if (len > 0) {
+          setLen((v) => v - 1);
+          t.current = window.setTimeout(tick, Math.max(40, speed - 10));
+        } else {
+          setBack(false);
+          setI((v) => (v + 1) % words.length);
+          t.current = window.setTimeout(tick, 250);
+        }
       }
     };
     t.current = window.setTimeout(tick, 250);
     return () => t.current && clearTimeout(t.current);
   }, [word.length, speed, pause, back, len, words]);
+
   return word.slice(0, len);
 }
 
 const IgniteHero: React.FC = () => {
   const typed = useTypewriter(useMemo(() => ROLES, []), 55, 1100);
 
+  // Slides: use background-position panning (not element translate)
   const slides = useMemo(
     () =>
       HERO_BG_IMAGES.map((src, idx) => ({
         src,
-        delay: `${idx * 8}s`,
-        fromX: idx % 2 === 0 ? "0%" : "2%",
-        fromY: idx % 3 === 0 ? "0%" : "-2%",
-        toX: idx % 2 === 0 ? "3%" : "-3%",
-        toY: idx % 3 === 0 ? "-3%" : "3%",
+        delay: `${idx * 8}s`, // each slide window ~8s
+        fromPos: idx % 2 === 0 ? "50% 52%" : "48% 50%",
+        toPos: idx % 2 === 0 ? "47% 49%" : "52% 53%",
       })),
     []
   );
 
   return (
-    <section id="hero" className="relative min-h-screen text-white overflow-hidden" aria-label="Ignite style hero">
-      {/* BACKGROUND (no overlay) */}
+    <section id="hero" className="relative min-h-screen text-white overflow-hidden" aria-label="Hero">
+      {/* ===== BACKGROUND (no overlay) ===== */}
       <div className="absolute inset-0" aria-hidden="true">
         {slides.map((s) => (
           <div
@@ -55,17 +67,16 @@ const IgniteHero: React.FC = () => {
               {
                 backgroundImage: `url('${s.src}')`,
                 ["--delay" as any]: s.delay,
-                ["--fromX" as any]: s.fromX,
-                ["--fromY" as any]: s.fromY,
-                ["--toX" as any]: s.toX,
-                ["--toY" as any]: s.toY,
+                ["--fromPos" as any]: s.fromPos,
+                ["--toPos" as any]: s.toPos,
+                ["--cycle" as any]: `${8 * HERO_BG_IMAGES.length}s`,
               } as React.CSSProperties
             }
           />
         ))}
       </div>
 
-      {/* CONTENT */}
+      {/* ===== CONTENT ===== */}
       <div className="relative z-10 flex min-h-screen items-center">
         <div className="container mx-auto px-6">
           <div className="max-w-2xl">
@@ -78,7 +89,7 @@ const IgniteHero: React.FC = () => {
               </span>
             </h1>
 
-            {/* Buttons with background colors */}
+            {/* Buttons with solid brand backgrounds */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <a
                 href="/services"
@@ -107,26 +118,34 @@ const IgniteHero: React.FC = () => {
         </div>
       </div>
 
-      {/* Styles */}
+      {/* ===== Styles (scoped) ===== */}
       <style>{`
-        /* Ensure images ALWAYS fill the hero without stretching weirdly */
+        /* Prevent initial white flashes and ensure safe viewport height */
+        #hero { min-height: 100svh; background-color: #000; }
+
+        /* Each slide: pinned, covers fully, no overlay. We animate background-position. */
         .slide {
           position: absolute;
           inset: 0;
           background-position: center center !important;
           background-repeat: no-repeat !important;
-          background-size: cover !important;   /* <-- key for full cover */
-          will-change: transform, opacity;
+          background-size: cover !important;
+          will-change: opacity, background-position, transform;
           opacity: 0;
+
+          /* Base overscale for "bleed" so edges never show during pan/zoom */
+          transform: scale(1.12);
+
+          /* Timings: reuse --cycle so they're in sync across slides */
           animation:
-            slideFade ${8 * HERO_BG_IMAGES.length}s linear infinite,
-            kenburns ${8 * HERO_BG_IMAGES.length}s ease-in-out infinite;
+            slideFade var(--cycle, 32s) linear infinite,
+            kenburnsScale var(--cycle, 32s) ease-in-out infinite,
+            pan var(--cycle, 32s) ease-in-out infinite;
           animation-delay: var(--delay);
-          transform: translateZ(0);
-          /* small fallback tint for text legibility on very bright photos */
           filter: saturate(1.05) contrast(1.02);
         }
 
+        /* Crossfade window per slide */
         @keyframes slideFade {
           0%   { opacity: 0; }
           5%   { opacity: 1; }
@@ -135,16 +154,21 @@ const IgniteHero: React.FC = () => {
           100% { opacity: 0; }
         }
 
-        @keyframes kenburns {
-          0%   { transform: scale(1.02) translate(var(--fromX, 0), var(--fromY, 0)); }
-          100% { transform: scale(1.15) translate(var(--toX, 0), var(--toY, 0)); }
+        /* Gentle zoom only (no translate of the layer) */
+        @keyframes kenburnsScale {
+          0%   { transform: scale(1.12); }
+          100% { transform: scale(1.20); }
         }
 
-        @keyframes blinkCaret { 0%,45%{opacity:1;} 46%,100%{opacity:0;} }
-        .animate-caret { animation: blinkCaret 900ms step-end infinite; }
+        /* Pan the image inside the slide (prevents white gaps) */
+        @keyframes pan {
+          0%   { background-position: var(--fromPos, 50% 50%); }
+          100% { background-position: var(--toPos, 48% 52%); }
+        }
 
-        /* Respect safe viewport height on mobile */
-        #hero { min-height: 100svh; }
+        /* Blinking caret for the typed text */
+        @keyframes blinkCaret { 0%,45% { opacity: 1; } 46%,100% { opacity: 0; } }
+        .animate-caret { animation: blinkCaret 900ms step-end infinite; }
       `}</style>
     </section>
   );
