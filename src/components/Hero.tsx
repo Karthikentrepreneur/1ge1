@@ -117,6 +117,20 @@ const IgniteHero: React.FC = () => {
             {/* CTA buttons (Download CV + Say hello) */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <a
+                href="/services"
+                className="group inline-flex items-center justify-center rounded-md px-6 py-4 text-base font-medium bg-white text-black hover:bg-white/90 transition shadow-lg"
+              >
+                <span className="mr-3">Our Services</span>
+                <span className="relative inline-flex h-5 w-5 items-center justify-center overflow-hidden">
+                  <span className="absolute translate-x-0 group-hover:-translate-x-6 transition">
+                    →
+                  </span>
+                  <span className="absolute translate-x-6 group-hover:translate-x-0 transition">
+                    →
+                  </span>
+                </span>
+              </a>
+              <a
                 href="/contact"
                 className="group inline-flex items-center justify-center rounded-md px-6 py-4 text-base font-medium bg-white text-black hover:bg-white/90 transition shadow-lg"
               >
