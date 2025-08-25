@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 
 /** ========= CONFIG ========= */
 const HERO_BG_IMAGES = ["/hero1.jpg", "/hero22.png", "/hero31.png", "/hero41.png"];
-const ROLES = ["1 Global Enterprises Pte Ltd is a Singapore head quartered business group having interest in Shipping, Logistics/Supply chain, Product distribution, Software development/IT, Renewal energy supplies/clean energy and trading."];
+const ROLES = ["Shipping, Logistics/Supply chain, Product distribution, Software development/IT, Renewal energy supplies/clean energy and trading."];
 const PERSON_NAME = "Global Enterprises";
 
 const IgniteHero: React.FC = () => {
@@ -44,16 +44,13 @@ const IgniteHero: React.FC = () => {
       </div>
 
       {/* ===== CONTENT ===== */}
-      <div className="relative z-10 flex min-h-screen items-center">
-        <div className="container mx-auto px-6">
-          <div className="max-w-2xl">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">
-              1 {PERSON_NAME}
-              <br />
-              <span className="text-2xl inline-block mt-2 text-brand-gold">
-                {ROLES.join(" • ")}
-              </span>
-            </h1>
+      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">
+  1 {PERSON_NAME}
+  <br />
+  <span className="mt-3 block text-base sm:text-lg leading-relaxed font-normal text-brand-gold">
+    {ROLES.join(" • ")}
+  </span>
+</h1>
 
             {/* Buttons */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
