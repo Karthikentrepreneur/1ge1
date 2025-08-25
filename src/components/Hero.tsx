@@ -64,4 +64,63 @@ const IgniteHero: React.FC = () => {
               >
                 <span className="mr-3">About Us</span>
                 <span className="relative inline-flex h-5 w-5 items-center justify-center overflow-hidden">
-                  <span className="absolute translate-
+                  <span className="absolute translate-x-0 group-hover:-translate-x-6 transition">→</span>
+                  <span className="absolute translate-x-6 group-hover:translate-x-0 transition">→</span>
+                </span>
+              </button>
+              <button
+                onClick={() => scrollToSection("group-companies")}
+                className="group inline-flex items-center justify-center rounded-md px-6 py-4 text-base font-medium
+                           bg-[#0A84FF] text-white hover:brightness-110 active:brightness-95 transition shadow-lg"
+              >
+                <span className="mr-3">Our Companies</span>
+                <span className="relative inline-flex h-5 w-5 items-center justify-center overflow-hidden">
+                  <span className="absolute translate-x-0 group-hover:-translate-x-6 transition">→</span>
+                  <span className="absolute translate-x-6 group-hover:translate-x-0 transition">→</span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ===== Styles ===== */}
+      <style>{`
+        #hero { min-height: 100svh; background-color: #000; }
+        .slide {
+          position: absolute;
+          inset: 0;
+          background-position: center center !important;
+          background-repeat: no-repeat !important;
+          background-size: cover !important;
+          will-change: opacity, background-position, transform;
+          opacity: 0;
+          transform: scale(1.12);
+          animation:
+            slideFade var(--cycle, 32s) linear infinite,
+            kenburnsScale var(--cycle, 32s) ease-in-out infinite,
+            pan var(--cycle, 32s) ease-in-out infinite;
+          animation-delay: var(--delay);
+          filter: saturate(1.05) contrast(1.02);
+        }
+        @keyframes slideFade {
+          0%   { opacity: 0; }
+          5%   { opacity: 1; }
+          25%  { opacity: 1; }
+          30%  { opacity: 0; }
+          100% { opacity: 0; }
+        }
+        @keyframes kenburnsScale {
+          0%   { transform: scale(1.12); }
+          100% { transform: scale(1.20); }
+        }
+        @keyframes pan {
+          0%   { background-position: var(--fromPos, 50% 50%); }
+          100% { background-position: var(--toPos, 48% 52%); }
+        }
+      `}</style>
+    </section>
+  );
+};
+
+export default IgniteHero;
