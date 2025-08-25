@@ -2,8 +2,8 @@ import React, { useMemo } from "react";
 
 /** ========= CONFIG ========= */
 const HERO_BG_IMAGES = ["/hero1.jpg", "/hero22.png", "/hero31.png", "/hero41.png"];
-const ROLES = ["Food Technology", "Lubricant Distribution", "Supply Chain Solutions", "Software Development"];
-const PERSON_NAME = "Invested In";
+const ROLES = ["1 Global Enterprises Pte Ltd is a Singapore head quartered business group having interest in Shipping, Logistics/Supply chain, Product distribution, Software development/IT, Renewal energy supplies/clean energy and trading."];
+const PERSON_NAME = "Global Enterprises";
 
 const IgniteHero: React.FC = () => {
   const slides = useMemo(
@@ -48,9 +48,9 @@ const IgniteHero: React.FC = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-2xl">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">
-              We {PERSON_NAME}
+              1 {PERSON_NAME}
               <br />
-              <span className="inline-block mt-2 text-brand-gold">
+              <span className="text-2xl inline-block mt-2 text-brand-gold">
                 {ROLES.join(" • ")}
               </span>
             </h1>
