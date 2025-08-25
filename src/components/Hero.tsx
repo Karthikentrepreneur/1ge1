@@ -44,7 +44,10 @@ const IgniteHero: React.FC = () => {
       </div>
 
       {/* ===== CONTENT ===== */}
-      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">
+      <div className="relative z-10 flex min-h-screen items-center">
+        <div className="container mx-auto px-6">
+          <div className="max-w-2xl">
+           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">
   1 {PERSON_NAME}
   <br />
   <span className="mt-3 block text-base sm:text-lg leading-relaxed font-normal text-brand-gold">
