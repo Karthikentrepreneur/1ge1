@@ -18,8 +18,6 @@ const Hero = () => {
   Building a Smarter, <br />
   <span className="relative inline-block">
     <span className="text-gray-900">Greener World</span>
-    <span className="pointer-events-none absolute left-0 -bottom-2 w-full h-3 rounded-full bg-blue-300/70 blur-[1px]" />
-  </span>
 </h1>
 
 <p className="mt-6 text-base sm:text-lg text-gray-600 max-w-xl mx-auto lg:mx-0">
@@ -56,23 +54,9 @@ const Hero = () => {
               className="relative z-10 w-[320px] sm:w-[380px] md:w-[430px] lg:w-[480px] object-contain"
             />
             {/* Floating stat pill */}
-            <div className="absolute z-20 -left-4 bottom-10 flex items-center gap-4 bg-white/90 backdrop-blur rounded-full shadow-xl ring-1 ring-black/5 px-4 py-3">
-              <div className="h-10 w-10 shrink-0 rounded-full bg-gray-900 flex items-center justify-center text-white text-sm font-bold">
-                %
-              </div>
-              <div>
-                <div className="text-sm text-gray-700">Sale Increase</div>
-                <div className="text-sm font-semibold text-blue-600 mt-1">
-                  +128%
-                </div>
-              </div>
-            </div>
+           
             {/* Floating mini card */}
-            <div className="absolute z-20 right-4 top-6 bg-white/90 backdrop-blur rounded-xl shadow-xl ring-1 ring-black/5 p-4">
-              <div className="text-xs text-gray-500">New Traffic</div>
-              <div className="mt-2 h-14 w-28 rounded bg-gradient-to-tr from-blue-50 to-blue-100" />
-            </div>
-          </div>
+
         </div>
       </div>
     </section>
