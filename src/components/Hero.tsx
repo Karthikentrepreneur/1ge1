@@ -34,23 +34,15 @@ const Hero = () => {
               software, and lubricants — creating a cleaner and more connected world.
             </p>
 
-            <form
-              className="mt-8 flex w-full max-w-xl mx-auto lg:mx-0 rounded-xl bg-white shadow-lg ring-1 ring-black/5 overflow-hidden"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <input
-                type="email"
-                placeholder="Your Email"
-                aria-label="Email address"
-                className="flex-1 px-4 sm:px-5 py-4 text-base outline-none placeholder:text-gray-400"
-              />
+            {/* Only Get Started button */}
+            <div className="mt-8 flex justify-center lg:justify-start">
               <Button
-                type="submit"
-                className="px-6 sm:px-8 py-4 text-base font-semibold rounded-none bg-blue-600 hover:bg-blue-700"
+                type="button"
+                className="px-8 py-4 text-base font-semibold bg-blue-600 hover:bg-blue-700"
               >
                 Get Started
               </Button>
-            </form>
+            </div>
           </div>
 
           {/* RIGHT */}
@@ -77,7 +69,7 @@ const Hero = () => {
 
       {/* Logos (same background, same sizes) */}
       <div className="relative z-10 w-full pb-14">
-        <h2 className="text-center text-2xl font-semibold text-gray-800 mb-8">
+        <h2 className="text-center text-xl font-semibold text-gray-800 mb-4">
           Group of Companies
         </h2>
 
