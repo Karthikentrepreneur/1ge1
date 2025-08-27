@@ -1,137 +1,97 @@
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { CheckCircle } from "lucide-react";
 
 const Hero = () => {
   return (
     <section
       id="hero"
+      className="relative min-h-[90vh] overflow-hidden"
       style={{
-        backgroundImage:
-          "linear-gradient(to bottom, rgba(245,245,245,0.85), rgba(230,230,230,0.95)), url('/greybackgound.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        background:
+          "radial-gradient(1200px 600px at 30% -10%, rgba(99, 179, 237, 0.25), transparent 60%), radial-gradient(900px 500px at 90% 20%, rgba(99, 102, 241, 0.18), transparent 60%), linear-gradient(180deg, #e6f3ff 0%, #f2f7ff 100%)",
       }}
-      // Mobile: block layout + extra top padding for fixed header
-      // Desktop (lg+): same flex centering as before
-      className="relative min-h-screen overflow-hidden bg-gray-50 lg:flex lg:items-center pt-24 lg:pt-0 pb-10"
     >
-      {/* Main Grid */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 items-center gap-12">
-          {/* Left: Text */}
-          <div className="space-y-8 animate-fade-in text-center lg:text-left">
-            <Badge
-              variant="secondary"
-              className="px-4 py-2 text-base font-medium bg-orange-100 inline-block"
-            >
-              🌱 Join the Green Revolution
-            </Badge>
+      {/* Top navigation spacing (if header is fixed) */}
+      <div className="pt-24 lg:pt-28" />
 
-            <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold leading-tight">
-              Transform Your{" "}
-              <span className="bg-gradient-to-r from-green-700 to-emerald-400 bg-clip-text text-transparent">
-                Waste
-              </span>
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        <div className="grid lg:grid-cols-2 items-center gap-12">
+          {/* LEFT */}
+          <div className="text-center lg:text-left">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] text-gray-900">
+              Increase sales
               <br />
-              Power the{" "}
-              <span className="bg-gradient-to-r from-green-700 to-emerald-400 bg-clip-text text-transparent">
-                Future
-              </span>
+              with{" "}
+              <span className="relative inline-block">
+                <span className="text-gray-900">digital</span>
+                {/* curved underline bar */}
+                <span className="pointer-events-none absolute left-0 -bottom-2 w-full h-3 rounded-full bg-blue-300/70 blur-[1px]" />
+              </span>{" "}
+              marketing
             </h1>
 
-            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-lg mx-auto lg:mx-0">
-              Join the green energy movement by recycling your,{" "}
-              <strong className="text-green-600">used cooking oil</strong> into clean,
-              efficient biodiesel. Together, we can reduce pollution and build a
-              sustainable tomorrow.
+            <p className="mt-6 text-base sm:text-lg text-gray-600 max-w-xl mx-auto lg:mx-0">
+              Dissuade ecstatic and properly saw entirely sir why laughter
+              endeavor. In on my jointure horrible margaret suitable.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            {/* Email capture */}
+            <form
+              className="mt-8 flex w-full max-w-xl mx-auto lg:mx-0 rounded-xl bg-white shadow-lg ring-1 ring-black/5 overflow-hidden"
+              onSubmit={(e) => e.preventDefault()}
+            >
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="flex-1 px-4 sm:px-5 py-4 text-base outline-none placeholder:text-gray-400"
+              />
               <Button
-                variant="hero-outline"
-                size="lg"
-                className="w-full sm:w-auto text-white text-lg px-8 py-6 rounded-sm bg-gradient-to-r from-green-500 to-green-700 hover:from-green-600 hover:to-green-800 shadow-xl"
+                type="submit"
+                className="px-6 sm:px-8 py-4 text-base font-semibold rounded-none bg-blue-600 hover:bg-blue-700"
               >
-                Become a Partner
+                Get Started
               </Button>
-            </div>
-
-            {/* Trust badges */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 justify-items-center lg:justify-items-start">
-              {["FSSAI Approved", "Carbon Offset", "100% Eco-Friendly", "Free Pickup"].map(
-                (text) => (
-                  <div
-                    key={text}
-                    className="flex items-center gap-2 text-sm text-muted-foreground"
-                  >
-                    <CheckCircle className="h-4 w-4 text-green-600" />
-                    {text}
-                  </div>
-                )
-              )}
-            </div>
+            </form>
           </div>
 
-          {/* Right: Van + CTA */}
-          <div className="relative flex flex-col items-center justify-center animate-fade-in mt-10 lg:mt-0">
+          {/* RIGHT */}
+          <div className="relative flex items-center justify-center lg:justify-end">
+            {/* Purple circle backdrop */}
+            <div className="absolute -right-8 sm:-right-6 md:right-0 lg:right-6 xl:right-10 top-8 h-[420px] w-[420px] sm:h-[460px] sm:w-[460px] rounded-full bg-[#7c3aed] opacity-100" />
+            {/* Person */}
             <img
-              src="/van.png" // place van.png in /public
-              alt="Super Energy Van"
-              className="w-64 sm:w-80 md:w-96 lg:w-[520px] max-w-full object-contain animate-float"
+              src="/hero-person.png"
+              alt="Happy customer using phone"
+              className="relative z-10 w-[340px] sm:w-[380px] md:w-[430px] lg:w-[520px] object-contain"
+              loading="eager"
+              decoding="async"
             />
-            <div className="mt-6 animate-bounce w-full sm:w-auto">
-              <Button className="w-full sm:w-auto text-white px-10 py-5 rounded-sm bg-gradient-to-r from-green-500 to-green-700 hover:from-green-600 hover:to-green-800 text-lg shadow-xl">
-                Schedule Free Pickup
-              </Button>
+            {/* Floating stat pill */}
+            <div className="absolute z-20 -left-2 sm:left-0 bottom-10 sm:bottom-16 flex items-center gap-4 bg-white/90 backdrop-blur rounded-full shadow-xl ring-1 ring-black/5 px-4 py-3">
+              <div className="h-10 w-10 shrink-0 rounded-full bg-gray-900 flex items-center justify-center text-white text-sm font-bold">
+                %
+              </div>
+              <div className="pr-1">
+                <div className="text-sm text-gray-700 leading-none">Sale Increase</div>
+                <div className="text-sm font-semibold text-blue-600 mt-1">+128%</div>
+              </div>
+            </div>
+            {/* Floating mini chart card */}
+            <div className="absolute z-20 right-2 sm:right-6 -top-2 sm:-top-4 bg-white/90 backdrop-blur rounded-xl shadow-xl ring-1 ring-black/5 p-4">
+              <div className="text-xs text-gray-500">New Traffic</div>
+              <div className="mt-2 h-14 w-28 overflow-hidden rounded">
+                {/* If you have a tiny chart image, drop it in public and use it here */}
+                {/* <img src="/mini-chart.png" alt="Chart" className="w-full h-full object-contain" /> */}
+                <div className="h-full w-full bg-gradient-to-tr from-blue-50 to-blue-100" />
+              </div>
             </div>
           </div>
         </div>
-
-        {/* ===== Added: Bottom strip only (inside hero) ===== */}
-        <div className="mt-12">
-          {/* 3-step How It Works */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="rounded-xl border border-emerald-100 backdrop-blur p-5 shadow-sm bg-emerald-100 text-center md:text-left">
-              <div className="flex items-center justify-center md:justify-start gap-3">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-600 text-white font-semibold">
-                  1
-                </span>
-                <h3 className="font-semibold">Request Pickup</h3>
-              </div>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Book a free collection—get sealed containers for your used cooking oil.
-              </p>
-            </div>
-
-            <div className="rounded-xl border border-emerald-100 backdrop-blur p-5 shadow-sm bg-emerald-100 text-center md:text-left">
-              <div className="flex items-center justify-center md:justify-start gap-3">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-600 text-white font-semibold">
-                  2
-                </span>
-                <h3 className="font-semibold">We Collect & Weigh</h3>
-              </div>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Trained staff, scheduled pickups & digital weight slip for transparency.
-              </p>
-            </div>
-
-            <div className="rounded-xl border border-emerald-100 backdrop-blur p-5 shadow-sm bg-emerald-100 text-center md:text-left">
-              <div className="flex items-center justify-center md:justify-start gap-3">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-600 text-white font-semibold">
-                  3
-                </span>
-                <h3 className="font-semibold">Collected for Licensed Recycling</h3>
-              </div>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Our team picks up sealed containers and hands them over to licensed recyclers.
-              </p>
-            </div>
-          </div>
-        </div>
-        {/* ===== /Bottom strip ===== */}
       </div>
+
+      {/* subtle gradient corners */}
+      <div className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(400px_200px_at_10%_10%,black,transparent)]" />
     </section>
   );
 };
+
 export default Hero;
