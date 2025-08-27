@@ -14,16 +14,18 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* LEFT (text 50%) */}
           <div className="flex flex-col justify-center text-center lg:text-left h-full">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] text-gray-900">
-              Increase sales
-              <br />
-              with{" "}
-              <span className="relative inline-block">
-                <span className="text-gray-900">digital</span>
-                <span className="pointer-events-none absolute left-0 -bottom-2 w-full h-3 rounded-full bg-blue-300/70 blur-[1px]" />
-              </span>{" "}
-              marketing
-            </h1>
+ <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] text-gray-900">
+  Powering a <br />
+  <span className="relative inline-block">
+    <span className="text-gray-900">Sustainable Future</span>
+    <span className="pointer-events-none absolute left-0 -bottom-2 w-full h-3 rounded-full bg-blue-300/70 blur-[1px]" />
+  </span>
+</h1>
+
+<p className="mt-6 text-base sm:text-lg text-gray-600 max-w-xl mx-auto lg:mx-0">
+  Driving innovation in renewable energy, food technology, supply chain solutions,
+  software, and lubricants — creating a cleaner and more connected world.
+</p>
 
             <p className="mt-6 text-base sm:text-lg text-gray-600 max-w-xl mx-auto lg:mx-0">
               Dissuade ecstatic and properly saw entirely sir why laughter
