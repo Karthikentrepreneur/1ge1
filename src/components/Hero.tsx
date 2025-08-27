@@ -14,16 +14,17 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* LEFT (text 50%) */}
           <div className="flex flex-col justify-center text-center lg:text-left h-full">
- <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] text-gray-900">
-  Building a Smarter, <br />
-  <span className="relative inline-block">
-    <span className="text-gray-900">Greener World</span>
-</h1>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] text-gray-900">
+              Building a Smarter, <br />
+              <span className="relative inline-block">
+                <span className="text-gray-900">Greener World</span>
+              </span>
+            </h1>
 
-<p className="mt-6 text-base sm:text-lg text-gray-600 max-w-xl mx-auto lg:mx-0">
-  Driving innovation in renewable energy, food technology, supply chain solutions,
-  software, and lubricants — creating a cleaner and more connected world.
-</p>
+            <p className="mt-6 text-base sm:text-lg text-gray-600 max-w-xl mx-auto lg:mx-0">
+              Driving innovation in renewable energy, food technology, supply chain solutions,
+              software, and lubricants — creating a cleaner and more connected world.
+            </p>
 
             <form
               className="mt-8 flex w-full max-w-xl mx-auto lg:mx-0 rounded-xl bg-white shadow-lg ring-1 ring-black/5 overflow-hidden"
@@ -32,6 +33,7 @@ const Hero = () => {
               <input
                 type="email"
                 placeholder="Your Email"
+                aria-label="Email address"
                 className="flex-1 px-4 sm:px-5 py-4 text-base outline-none placeholder:text-gray-400"
               />
               <Button
@@ -54,9 +56,8 @@ const Hero = () => {
               className="relative z-10 w-[320px] sm:w-[380px] md:w-[430px] lg:w-[480px] object-contain"
             />
             {/* Floating stat pill */}
-           
             {/* Floating mini card */}
-
+          </div>
         </div>
       </div>
     </section>
