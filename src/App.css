@@ -1,42 +1,86 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* ==== Group of Companies: marquee strip ==== */
+.brand-strip {
+  width: 100%;
+  padding: 1.75rem 0;           /* space around logos */
+  background: #fff;             /* or transparent if your hero bg works */
+  border-top: 1px solid rgba(0,0,0,0.08);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.brand-strip__title {
+  margin: 0 0 0.75rem 0;
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+  font-weight: 600;
+  color: #1f2937;               /* gray-800 */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Hide overflow so the track slides under the edges */
+.brand-marquee {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fades on edges so logos don’t pop in/out harshly */
+.brand-marquee::before,
+.brand-marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 64px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+.brand-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+.brand-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
+}
+
+/* The moving track */
+.brand-track {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  /* Make it as wide as needed and scroll it */
+  will-change: transform;
+  animation: brand-scroll 25s linear infinite;
+}
+.brand-marquee:hover .brand-track {
+  animation-play-state: paused; /* pause on hover */
+}
+
+/* Individual logo items */
+.brand-item {
+  height: clamp(40px, 5vw, 56px);
+  flex: 0 0 auto;
+  filter: grayscale(20%) contrast(105%);
+  opacity: 0.95;
+  transition: transform 200ms ease, filter 200ms ease, opacity 200ms ease;
+}
+.brand-item:hover {
+  transform: translateY(-2px);
+  filter: grayscale(0%) contrast(110%);
+  opacity: 1;
+}
+
+/* Keyframes for the seamless loop */
+@keyframes brand-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); } /* We’ll duplicate the row so -50% loops cleanly */
+}
+
+/* Optional: dark mode edge fades if your hero is dark
+@media (prefers-color-scheme: dark) {
+  .brand-strip { background: #0b1220; border-top-color: rgba(255,255,255,0.1); }
+  .brand-strip__title { color: #e5e7eb; }
+  .brand-marquee::before {
+    background: linear-gradient(to right, rgba(11,18,32,1), rgba(11,18,32,0));
   }
-  to {
-    transform: rotate(360deg);
+  .brand-marquee::after {
+    background: linear-gradient(to left, rgba(11,18,32,1), rgba(11,18,32,0));
   }
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+*/
