@@ -2,12 +2,12 @@ import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   const logos = [
-    "/logos/company1.png",
-    "/logos/company2.png",
-    "/logos/company3.png",
-    "/logos/company4.png",
-    "/logos/company5.png",
-    "/logos/company6.png",
+    "/logosss01.png",
+    "/logosss02.png",
+    "/logosss03.png",
+    "/logosss04.png",
+    "/logosss05.png",
+    "/logosss06.png",
   ];
 
   return (
@@ -19,7 +19,7 @@ const Hero = () => {
           "radial-gradient(1200px 600px at 30% -10%, rgba(99, 179, 237, 0.25), transparent 60%), radial-gradient(900px 500px at 90% 20%, rgba(99, 102, 241, 0.18), transparent 60%), linear-gradient(180deg, #e6f3ff 0%, #f2f7ff 100%)",
       }}
     >
-      {/* Top content */}
+      {/* Top hero content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 flex-1 flex items-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* LEFT (text 50%) */}
@@ -67,17 +67,23 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Auto-scrolling logos */}
-      <div className="w-full overflow-hidden bg-white py-6 border-t border-gray-200">
-        <div className="animate-scroll flex gap-12">
-          {logos.concat(logos).map((logo, i) => (
-            <img
-              key={i}
-              src={logo}
-              alt="Partner Logo"
-              className="h-12 w-auto object-contain flex-shrink-0"
-            />
-          ))}
+      {/* Group of Companies logos */}
+      <div className="w-full bg-white py-10 border-t border-gray-200">
+        <h2 className="text-center text-xl sm:text-2xl font-semibold text-gray-800 mb-6">
+          Group of Companies
+        </h2>
+
+        <div className="overflow-hidden">
+          <div className="animate-scroll flex gap-12">
+            {logos.concat(logos).map((logo, i) => (
+              <img
+                key={i}
+                src={logo}
+                alt={`Company logo ${i + 1}`}
+                className="h-12 sm:h-14 w-auto object-contain flex-shrink-0"
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
