@@ -15,9 +15,9 @@ const Hero = () => {
           {/* LEFT (text 50%) */}
           <div className="flex flex-col justify-center text-center lg:text-left h-full">
  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] text-gray-900">
-  Powering a <br />
+  Building a Smarter, <br />
   <span className="relative inline-block">
-    <span className="text-gray-900">Sustainable Future</span>
+    <span className="text-gray-900">Greener World</span>
     <span className="pointer-events-none absolute left-0 -bottom-2 w-full h-3 rounded-full bg-blue-300/70 blur-[1px]" />
   </span>
 </h1>
