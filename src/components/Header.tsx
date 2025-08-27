@@ -1,88 +1,125 @@
-import { Button } from "@/components/ui/button";
 
-const Hero = () => {
-  const logos = [
-    "/logosss01.png",
-    "/logosss02.png",
-    "/logosss03.png",
-    "/logosss04.png",
-    "/logosss05.png",
-    "/logosss06.png",
-  ];
+import { Link } from "react-router-dom";
+
+const Header = () => {
+  // Brand colors from logo
+  const BRAND = {
+    primary: "#07B5C9",     // teal
+    text: "#565657",        // dark grey
+    border: "#C3C5C5",      // light grey
+    soft: "#F8F9F9",        // off-white
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex flex-col justify-between"
+    <header
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm shadow-soft transition-colors"
       style={{
-        background:
-          "radial-gradient(1200px 600px at 30% -10%, rgba(99, 179, 237, 0.25), transparent 60%), radial-gradient(900px 500px at 90% 20%, rgba(99, 102, 241, 0.18), transparent 60%), linear-gradient(180deg, #e6f3ff 0%, #f2f7ff 100%)",
+        backgroundColor: "#ffffff",
+        borderBottom: `1px solid ${BRAND.border}`,
       }}
     >
-      {/* Hero content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 flex-1 flex items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* LEFT */}
-          <div className="flex flex-col justify-center text-center lg:text-left h-full">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] text-gray-900">
-              Building a Smarter, <br />
-              <span className="relative inline-block text-gray-900">Greener World</span>
-            </h1>
+      <div className="container mx-auto px-4" style={{ backgroundColor: BRAND.soft }}>
+        <div className="flex items-center justify-between py-4" style={{ backgroundColor: BRAND.soft }}>
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-3">
+            <img alt="1 Global Enterprises" className="h-12 w-auto object-contain" src="/globallogo.png" />
+          </Link>
 
-            <p className="mt-6 text-base sm:text-lg text-gray-600 max-w-xl mx-auto lg:mx-0">
-              Driving innovation in renewable energy, food technology, supply chain solutions,
-              software, and lubricants — creating a cleaner and more connected world.
-            </p>
-
-            <form
-              className="mt-8 flex w-full max-w-xl mx-auto lg:mx-0 rounded-xl bg-white shadow-lg ring-1 ring-black/5 overflow-hidden"
-              onSubmit={(e) => e.preventDefault()}
+          {/* Navigation Menu */}
+          <nav className="hidden md:flex items-center space-x-8">
+            <button 
+              onClick={() => scrollToSection('hero')}
+              className="text-gray-700 hover:text-[#16C79A] transition-colors font-medium"
             >
-              <input
-                type="email"
-                placeholder="Your Email"
-                aria-label="Email address"
-                className="flex-1 px-4 sm:px-5 py-4 text-base outline-none placeholder:text-gray-400"
-              />
-              <Button
-                type="submit"
-                className="px-6 sm:px-8 py-4 text-base font-semibold rounded-none bg-blue-600 hover:bg-blue-700"
-              >
-                Get Started
-              </Button>
-            </form>
-          </div>
+              Home
+            </button>
+            <button 
+              onClick={() => scrollToSection('about')}
+              className="text-gray-700 hover:text-[#16C79A] transition-colors font-medium"
+            >
+              About Us
+            </button>
+            <button 
+              onClick={() => scrollToSection('group-companies')}
+              className="text-gray-700 hover:text-[#16C79A] transition-colors font-medium"
+            >
+              Group Companies
+            </button>
+            <button 
+              onClick={() => scrollToSection('footer')}
+              className="text-gray-700 hover:text-[#16C79A] transition-colors font-medium"
+            >
+              Contact
+            </button>
+          </nav>
 
-          {/* RIGHT */}
-          <div className="relative flex items-center justify-center">
-            <div className="absolute h-[420px] w-[420px] sm:h-[460px] sm:w-[460px] rounded-full bg-[#7c3aed]" />
-            <img
-              src="/hero-person.png"
-              alt="Happy customer"
-              className="relative z-10 w-[320px] sm:w-[380px] md:w-[430px] lg:w-[480px] object-contain"
-            />
-          </div>
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden p-2 text-gray-700 hover:text-[#16C79A]"
+            onClick={() => {
+              const mobileMenu = document.getElementById('mobile-menu');
+              if (mobileMenu) {
+                mobileMenu.classList.toggle('hidden');
+              }
+            }}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        <div id="mobile-menu" className="hidden md:hidden pb-4" style={{ backgroundColor: BRAND.soft }}>
+          <nav className="flex flex-col space-y-2">
+            <button 
+              onClick={() => {
+                scrollToSection('hero');
+                document.getElementById('mobile-menu')?.classList.add('hidden');
+              }}
+              className="text-left py-2 text-gray-700 hover:text-[#16C79A] transition-colors font-medium"
+            >
+              Home
+            </button>
+            <button 
+              onClick={() => {
+                scrollToSection('about');
+                document.getElementById('mobile-menu')?.classList.add('hidden');
+              }}
+              className="text-left py-2 text-gray-700 hover:text-[#16C79A] transition-colors font-medium"
+            >
+              About Us
+            </button>
+            <button 
+              onClick={() => {
+                scrollToSection('group-companies');
+                document.getElementById('mobile-menu')?.classList.add('hidden');
+              }}
+              className="text-left py-2 text-gray-700 hover:text-[#16C79A] transition-colors font-medium"
+            >
+              Group Companies
+            </button>
+            <button 
+              onClick={() => {
+                scrollToSection('footer');
+                document.getElementById('mobile-menu')?.classList.add('hidden');
+              }}
+              className="text-left py-2 text-gray-700 hover:text-[#16C79A] transition-colors font-medium"
+            >
+              Contact
+            </button>
+          </nav>
         </div>
       </div>
-
-      {/* Logos (inside hero background) */}
-      <div className="relative z-10 w-full py-12">
-        <h2 className="text-center text-2xl font-semibold text-gray-800 mb-8">
-          Group of Companies
-        </h2>
-        <div className="flex justify-center flex-wrap gap-10 px-6">
-          {logos.map((logo, i) => (
-            <img
-              key={i}
-              src={logo}
-              alt={`Company logo ${i + 1}`}
-              className="h-16 sm:h-20 w-auto object-contain"
-            />
-          ))}
-        </div>
-      </div>
-    </section>
+    </header>
   );
 };
 
-export default Hero;
+export default Header;
