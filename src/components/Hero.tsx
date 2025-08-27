@@ -60,7 +60,7 @@ const Hero = () => {
               aria-hidden
               className="
                 absolute rounded-full bg-[#7c3aed]
-                w-[360px] h-[360px] sm:w-[440px] sm:h-[440px] lg:w-[520px] lg:h-[520px]
+                w-[320px] h-[320px] sm:w-[440px] sm:h-[440px] lg:w-[420px] lg:h-[420px]
                 top-1/2 -translate-y-1/2 right-[-24px] sm:right-[-8px] lg:right-0
                 z-0
               "
