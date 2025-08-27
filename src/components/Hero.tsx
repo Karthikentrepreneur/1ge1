@@ -51,7 +51,7 @@ const Hero = () => {
             <div className="absolute h-[420px] w-[420px] sm:h-[460px] sm:w-[460px] rounded-full bg-[#7c3aed]" />
             {/* Person */}
             <img
-              src="/hero-person.png"
+              src="/heromman.png"
               alt="Happy customer"
               className="relative z-10 w-[320px] sm:w-[380px] md:w-[430px] lg:w-[480px] object-contain"
             />
