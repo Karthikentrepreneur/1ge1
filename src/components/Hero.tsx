@@ -27,11 +27,6 @@ const Hero = () => {
   software, and lubricants — creating a cleaner and more connected world.
 </p>
 
-            <p className="mt-6 text-base sm:text-lg text-gray-600 max-w-xl mx-auto lg:mx-0">
-              Dissuade ecstatic and properly saw entirely sir why laughter
-              endeavor. In on my jointure horrible margaret suitable.
-            </p>
-
             <form
               className="mt-8 flex w-full max-w-xl mx-auto lg:mx-0 rounded-xl bg-white shadow-lg ring-1 ring-black/5 overflow-hidden"
               onSubmit={(e) => e.preventDefault()}
