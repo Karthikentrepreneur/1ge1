@@ -1,16 +1,26 @@
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
+  const logos = [
+    "/logos/company1.png",
+    "/logos/company2.png",
+    "/logos/company3.png",
+    "/logos/company4.png",
+    "/logos/company5.png",
+    "/logos/company6.png",
+  ];
+
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center"
+      className="relative min-h-screen flex flex-col justify-between"
       style={{
         background:
           "radial-gradient(1200px 600px at 30% -10%, rgba(99, 179, 237, 0.25), transparent 60%), radial-gradient(900px 500px at 90% 20%, rgba(99, 102, 241, 0.18), transparent 60%), linear-gradient(180deg, #e6f3ff 0%, #f2f7ff 100%)",
       }}
     >
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
+      {/* Top content */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 flex-1 flex items-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* LEFT (text 50%) */}
           <div className="flex flex-col justify-center text-center lg:text-left h-full">
@@ -47,17 +57,27 @@ const Hero = () => {
 
           {/* RIGHT (image 50%) */}
           <div className="relative flex items-center justify-center">
-            {/* Purple circle */}
             <div className="absolute h-[420px] w-[420px] sm:h-[460px] sm:w-[460px] rounded-full bg-[#7c3aed]" />
-            {/* Person */}
             <img
-              src="/manwithglobe.png"
+              src="/hero-person.png"
               alt="Happy customer"
               className="relative z-10 w-[320px] sm:w-[380px] md:w-[430px] lg:w-[480px] object-contain"
             />
-            {/* Floating stat pill */}
-            {/* Floating mini card */}
           </div>
+        </div>
+      </div>
+
+      {/* Auto-scrolling logos */}
+      <div className="w-full overflow-hidden bg-white py-6 border-t border-gray-200">
+        <div className="animate-scroll flex gap-12">
+          {logos.concat(logos).map((logo, i) => (
+            <img
+              key={i}
+              src={logo}
+              alt="Partner Logo"
+              className="h-12 w-auto object-contain flex-shrink-0"
+            />
+          ))}
         </div>
       </div>
     </section>
