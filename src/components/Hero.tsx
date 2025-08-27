@@ -67,7 +67,7 @@ const Hero = () => {
             />
             {/* Person (stays above the circle) */}
             <img
-              src="/hero-person.png"
+              src="/heromman.png"
               alt="Happy customer"
               className="relative z-10 w-[300px] sm:w-[380px] md:w-[430px] lg:w-[480px] object-contain"
             />
