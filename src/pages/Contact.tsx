@@ -49,7 +49,7 @@ export default function Contact() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 src={
-                  "https://www.google.com/maps?q=" +
+                  "https://www.google.com/maps/d/embed?mid=1E8g8gqlYKap5hnxPvKVgGahQ-WsU0AM&ehbc=2E312F&noprof=1" +
                   encodeURIComponent(
                     "1 Global Enterprises Pte Ltd, #03-01 Keppel Distripark, 511 Kampong Bahru Road, Singapore 099447"
                   ) +
