@@ -139,8 +139,8 @@ function BrandMosaic() {
 
         {/* Wide banner bottom */}
         <Tile
-          src="/logistics1.png"
-          alt="Warehousing"
+          src="/shipping.png"
+          alt="Shipping"
           className="md:col-span-3"
           tall={false}
         />
