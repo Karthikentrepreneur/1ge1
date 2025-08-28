@@ -41,24 +41,19 @@ export default function Contact() {
             </div>
 
             {/* Map */}
-            <div className="relative overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
-              <iframe
-                title="1GE Map"
-                className="h-[420px] w-full md:h-full"
-                style={{ border: 0 }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                src={
-                  "https://www.google.com/maps/d/embed?mid=1E8g8gqlYKap5hnxPvKVgGahQ-WsU0AM&ehbc=2E312F&noprof=1" +
-                  encodeURIComponent(
-                    "1 Global Enterprises Pte Ltd, #03-01 Keppel Distripark, 511 Kampong Bahru Road, Singapore 099447"
-                  ) +
-                  "&output=embed&z=15"
-                }
-              />
-              <div className="pointer-events-none absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-gray-700 shadow">
-                Global HQ — Singapore
-              </div>
+<div className="relative overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
+  <iframe
+    title="1GE Map"
+    className="h-[420px] w-full md:h-full"
+    style={{ border: 0 }}
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps/d/embed?mid=1E8g8gqlYKap5hnxPvKVgGahQ-WsU0AM&ehbc=2E312F&noprof=1"
+  />
+  <div className="pointer-events-none absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-gray-700 shadow">
+    Global HQ — Singapore
+  </div>
+
             </div>
           </div>
         </section>
