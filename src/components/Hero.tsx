@@ -5,7 +5,7 @@ const Hero = () => {
     "/logosss01.png",
     "/logosss02.png",
     "/logosss03.png",
-    "/moltech-logo.png",
+    "/logosss04.png",
     "/logosss05.png",
     "/logosss06.png",
   ];
