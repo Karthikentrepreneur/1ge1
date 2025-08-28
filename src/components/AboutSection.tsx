@@ -12,30 +12,14 @@ const BRAND = {
 };
 
 const aboutPoints = [
-  {
-    num: "1",
-    title: "Who We Are",
-    body:
-      "1 Global Enterprises Pte Ltd is a Singapore-headquartered group operating in 16+ countries with 700+ professionals.",
-  },
-  {
-    num: "2",
-    title: "What We Do",
-    body:
-      "Shipping, Logistics & Supply Chain, Product Distribution, Software/IT, Renewable Energy, and International Trading.",
-  },
-  {
-    num: "3",
-    title: "How We Help",
-    body:
-      "Expert-led business units deliver reliable execution, innovation, and compliance across global markets.",
-  },
-  {
-    num: "4",
-    title: "Create success story",
-    body:
-      "With access to technology, partnerships, and sustainable practices, we help clients scale with confidence.",
-  },
+  { num: "1", title: "Who We Are",
+    body: "1 Global Enterprises Pte Ltd is a Singapore-headquartered group operating in 16+ countries with 700+ professionals." },
+  { num: "2", title: "What We Do",
+    body: "Shipping, Logistics & Supply Chain, Product Distribution, Software/IT, Renewable Energy, and International Trading." },
+  { num: "3", title: "How We Help",
+    body: "Expert-led business units deliver reliable execution, innovation, and compliance across global markets." },
+  { num: "4", title: "Create success story",
+    body: "With access to technology, partnerships, and sustainable practices, we help clients scale with confidence." },
 ];
 
 export default function AboutPage() {
@@ -76,7 +60,6 @@ export default function AboutPage() {
                   className="group relative rounded-2xl bg-white p-5 shadow-sm ring-1 transition-all hover:-translate-y-0.5 hover:shadow-md"
                   style={{ ringColor: BRAND.slate200 }}
                 >
-                  {/* Number badge (smaller, brand gradient) */}
                   <div className="flex items-center gap-3">
                     <span
                       className="inline-flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold text-white shadow-sm"
@@ -116,72 +99,104 @@ export default function AboutPage() {
             </a>
           </div>
 
-          {/* RIGHT: Collage with brand gradient background (no plain white) */}
-          <BrandCollage />
+          {/* RIGHT: Premium mosaic collage (no white box) */}
+          <BrandMosaic />
         </div>
       </section>
     </main>
   );
 }
 
-/** ===== Collage Component (brand gradient background) ===== */
-function BrandCollage() {
+/** ===== Premium Mosaic Collage =====
+ *  - 3 columns on md+ with row/col spans
+ *  - Strong hero image + stacked tiles + wide banner
+ *  - Brand-tinted overlays, saturation/contrast boost, nice shadows
+ */
+function BrandMosaic() {
   return (
-    <div
-      className="relative rounded-3xl p-4 md:p-5"
-      style={{
-        background: ``,
-      }}
-    >
-      {/* optional faint logo watermark in corner */}
-      <img
-        src="/globallogo.png" // put your logo in /public
-        alt=""
-        className="pointer-events-none absolute right-4 top-4 h-8 opacity-15 md:h-10"
+    <div className="relative">
+      {/* Decorative brand glows behind the mosaic */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -inset-6 -z-10 blur-2xl opacity-40"
+        style={{
+          background: `radial-gradient(500px 300px at 10% 20%, ${BRAND.teal}33, transparent 60%),
+                       radial-gradient(500px 300px at 90% 70%, ${BRAND.blue}33, transparent 60%)`,
+        }}
       />
 
-      {/* Grid collage (no white background) */}
-      <div className="grid grid-cols-2 gap-3 md:gap-4">
-        <Tile src="/logistics.png" alt="Global Shipping" aspect="aspect-[4/3] object-fill" />
-        <Tile src="/biodiesel.png" alt="Biodiesel" aspect="aspect-[4/3] object-fill" />
+      <div className="grid gap-4 md:grid-cols-3 [grid-auto-rows:140px] md:[grid-auto-rows:160px]">
+        {/* Hero (big) */}
+        <Tile
+          src="/logistics.png"
+          alt="Global Shipping"
+          className="md:col-span-2 md:row-span-2"
+        />
 
-        {/* Two stacked on right for a zig-zag rhythm */}
-        <Tile src="/software.jpg" alt="Technology & IT" aspect="aspect-[4/3]" className="md:mt-2 object-fill" />
-        <Tile src="/logistics1.png" alt="Warehousing" aspect="aspect-[4/3]" className="md:-mt-2 object-fill" />
+        {/* Stacked right-side */}
+        <Tile src="/biodiesel.png" alt="Biodiesel" />
+        <Tile src="/software.jpg" alt="Technology & IT" />
+
+        {/* Wide banner bottom */}
+        <Tile
+          src="/logistics1.png"
+          alt="Warehousing"
+          className="md:col-span-3"
+          tall={false}
+        />
       </div>
-
-      {/* soft inner ring to separate images from background */}
-      <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-white/20" />
-      {/* ambient shine */}
-      <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-tr from-white/10 via-transparent to-white/0" />
     </div>
   );
 }
 
-/** Single image tile with hover zoom + subtle border */
+/** Single image tile with brand overlay + enhanced look */
 function Tile({
   src,
   alt,
-  aspect = "aspect-[4/3]",
   className = "",
+  tall = true,
 }: {
   src: string;
   alt: string;
-  aspect?: string;
   className?: string;
+  tall?: boolean;
 }) {
   return (
-    <figure className={`relative overflow-hidden rounded-2xl shadow-md ${className}`}>
-      <div className={`w-full ${aspect}`}>
-        <img
-          src={src}
-          alt={alt}
-          className="h-full w-full object-cover transition-transform duration-500 will-change-transform hover:scale-[1.04]"
-          loading="lazy"
-        />
-      </div>
-      {/* thin white border so tiles pop on the gradient */}
-      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/40" />
+    <figure
+      className={[
+        "group relative overflow-hidden rounded-2xl shadow-xl",
+        "ring-1 ring-white/30",
+        className,
+      ].join(" ")}
+    >
+      {/* Image */}
+      <img
+        src={src}
+        alt={alt}
+        className={[
+          "h-full w-full object-cover",
+          // enhance: a touch more contrast & saturation so photos pop
+          "brightness-[0.98] contrast-[1.08] saturate-[1.15]",
+          // motion
+          "transition-transform duration-700 will-change-transform group-hover:scale-[1.04]",
+        ].join(" ")}
+        loading="lazy"
+      />
+
+      {/* Brand-tinted overlay for richness + legibility */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            `linear-gradient(20deg, rgba(0,0,0,0.20), transparent 40%),
+             radial-gradient(400px 200px at 80% 10%, ${BRAND.teal}22, transparent 70%)`,
+        }}
+      />
+
+      {/* Soft top glossy edge */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/60" />
+      {/* Subtle drop shadow rim to sit on background */}
+      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-black/5" />
     </figure>
   );
 }
