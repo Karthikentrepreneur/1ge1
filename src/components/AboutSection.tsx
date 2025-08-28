@@ -92,7 +92,7 @@ export default function AboutPage() {
               />
               {/* Stagger lower-left to keep diagonal rhythm */}
               <img
-                src="/renew.jpg"
+                src="/biodiesel.png"
                 alt="Renewable energy"
                 className="h-44 w-full rounded-lg object-cover md:h-52 md:mt-8"
                 loading="lazy"
