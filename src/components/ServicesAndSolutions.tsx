@@ -34,8 +34,7 @@ export default function ServicesAndSolutions() {
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            `radial-gradient(700px 420px at 10% 10%, ${BRAND.teal}18, transparent 60%),
-             radial-gradient(800px 480px at 90% 20%, ${BRAND.blue}15, transparent 60%)`,
+            ``,
         }}
       />
 
