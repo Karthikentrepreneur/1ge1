@@ -17,45 +17,34 @@ type Service = {
 };
 
 const services: Service[] = [
-  { img: "/shipping1.png", title: "Shipping", desc: "Reliable global shipping solutions tailored for international trade and commerce.", href: "/services/shipping" },
-  { img: "/logistics2.png", title: "Logistics & Supply Chain", desc: "End-to-end logistics and supply chain management for efficient operations worldwide.", href: "/services/logistics" },
-  { img: "/transporatation.png", title: "Product Distribution", desc: "Streamlined product distribution networks ensuring speed and accuracy.", href: "/services/distribution" },
-  { img: "/softwareit.png", title: "Software / IT", desc: "Advanced software development and IT solutions for digital transformation.", href: "/services/software" },
-  { img: "/renewableenergy.png", title: "Renewable Energy", desc: "Sustainable energy initiatives supporting a greener tomorrow.", href: "/services/renewable" },
-  { img: "/trade.png", title: "International Trading", desc: "Cross-border trading expertise with strong global partnerships.", href: "/services/trading" },
+  { img: "/shipping1.png",    title: "Shipping",                 desc: "Reliable global shipping solutions tailored for international trade and commerce.", href: "/services/shipping" },
+  { img: "/logistics2.png",   title: "Logistics & Supply Chain", desc: "End-to-end logistics and supply chain management for efficient operations worldwide.", href: "/services/logistics" },
+  { img: "/transporatation.png",title: "Product Distribution",      desc: "Streamlined product distribution networks ensuring speed and accuracy.", href: "/services/distribution" },
+  { img: "/softwareit.png",    title: "Software / IT",            desc: "Advanced software development and IT solutions for digital transformation.", href: "/services/software" },
+  { img: "/renewableenergy.png",   title: "Renewable Energy",         desc: "Sustainable energy initiatives supporting a greener tomorrow.", href: "/services/renewable" },
+  { img: "/trade.png",     title: "International Trading",    desc: "Cross-border trading expertise with strong global partnerships.", href: "/services/trading" },
 ];
 
 export default function ServicesAndSolutions() {
   return (
-    <section
-      className="relative mx-auto w-full px-6 py-16"
-      style={{
-        background: `linear-gradient(135deg, ${BRAND.teal}15 0%, ${BRAND.blue}15 100%)`,
-      }}
-    >
-      {/* optional ambient decorative accents */}
+    <section className="relative mx-auto w-full max-w-7xl px-6 py-16">
+      {/* subtle ambient background accents */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            `radial-gradient(800px 500px at 15% 20%, ${BRAND.teal}25, transparent 70%),
-             radial-gradient(900px 600px at 85% 60%, ${BRAND.blue}25, transparent 70%)`,
+            `radial-gradient(700px 420px at 10% 10%, ${BRAND.teal}18, transparent 60%),
+             radial-gradient(800px 480px at 90% 20%, ${BRAND.blue}15, transparent 60%)`,
         }}
       />
 
       {/* Heading */}
       <div className="text-center max-w-2xl mx-auto mb-12">
-        <h2
-          className="text-3xl md:text-4xl font-bold tracking-tight"
-          style={{ color: BRAND.slate900 }}
-        >
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight" style={{ color: BRAND.slate900 }}>
           Services &amp; Solutions We Offer
         </h2>
-        <p
-          className="mt-3 text-base md:text-lg"
-          style={{ color: BRAND.slate600 }}
-        >
+        <p className="mt-3 text-base md:text-lg" style={{ color: BRAND.slate600 }}>
           Delivering reliable, innovative, and sustainable services across industries.
         </p>
       </div>
@@ -85,12 +74,10 @@ function Card({ service }: { service: Service }) {
       {/* Gradient border accent */}
       <div
         className="absolute inset-0 rounded-2xl p-px pointer-events-none"
-        style={{
-          background: `linear-gradient(135deg, ${BRAND.teal}33, ${BRAND.blue}33)`,
-        }}
+        style={{ background: `linear-gradient(135deg, ${BRAND.teal}33, ${BRAND.blue}33)` }}
       />
 
-      {/* Image with fixed aspect (16:9) */}
+      {/* Image with fixed aspect (16:9) for consistency */}
       <figure className="relative z-0 rounded-[calc(theme(borderRadius.2xl)-1px)] overflow-hidden">
         <div className="w-full aspect-video">
           <img
@@ -103,6 +90,7 @@ function Card({ service }: { service: Service }) {
               "transition-transform duration-700 will-change-transform group-hover:scale-[1.04]",
             ].join(" ")}
             onError={(e) => {
+              // simple fallback if image missing
               (e.currentTarget as HTMLImageElement).src = "/services/placeholder.jpg";
             }}
           />
@@ -117,11 +105,12 @@ function Card({ service }: { service: Service }) {
           </div>
         </figcaption>
 
-        {/* Subtle overlay */}
+        {/* Subtle brand overlay for cohesion */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
-            background: `radial-gradient(380px 180px at 85% 10%, ${BRAND.teal}22, transparent 70%)`,
+            background:
+              `radial-gradient(380px 180px at 85% 10%, ${BRAND.teal}22, transparent 70%)`,
           }}
         />
       </figure>
@@ -136,9 +125,7 @@ function Card({ service }: { service: Service }) {
       {/* Hover glow */}
       <div
         className="pointer-events-none absolute inset-0 -z-10 rounded-2xl opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100"
-        style={{
-          background: `radial-gradient(420px 220px at 20% 0%, ${BRAND.teal}22, transparent 70%)`,
-        }}
+        style={{ background: `radial-gradient(420px 220px at 20% 0%, ${BRAND.teal}22, transparent 70%)` }}
       />
     </Wrapper>
   );
