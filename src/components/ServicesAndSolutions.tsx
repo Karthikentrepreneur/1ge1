@@ -21,7 +21,7 @@ const services: Service[] = [
   { img: "/services/logistics.jpg",   title: "Logistics & Supply Chain", desc: "End-to-end logistics and supply chain management for efficient operations worldwide.", href: "/services/logistics" },
   { img: "/services/distribution.jpg",title: "Product Distribution",      desc: "Streamlined product distribution networks ensuring speed and accuracy.", href: "/services/distribution" },
   { img: "/services/software.jpg",    title: "Software / IT",            desc: "Advanced software development and IT solutions for digital transformation.", href: "/services/software" },
-  { img: "/services/renewable.jpg",   title: "Renewable Energy",         desc: "Sustainable energy initiatives supporting a greener tomorrow.", href: "/services/renewable" },
+  { img: "/renewableenergy.png",   title: "Renewable Energy",         desc: "Sustainable energy initiatives supporting a greener tomorrow.", href: "/services/renewable" },
   { img: "/services/trading.jpg",     title: "International Trading",    desc: "Cross-border trading expertise with strong global partnerships.", href: "/services/trading" },
 ];
 
