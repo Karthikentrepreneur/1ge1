@@ -11,7 +11,6 @@ const queryClient = new QueryClient();
 // Lazy-load pages for faster initial load
 const Index = lazy(() => import("./pages/Index"));
 const About = lazy(() => import("./pages/About"));
-const GroupCompanies = lazy(() => import("./pages/GroupCompanies"));
 const Services = lazy(() => import("./pages/Services"));
 const Contact = lazy(() => import("./pages/Contact"));
 
@@ -42,7 +41,6 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
-            <Route path="/group-companies" element={<GroupCompanies />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
             {/* Redirect all unknown routes to home */}
