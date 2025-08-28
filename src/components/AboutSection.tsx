@@ -1,4 +1,4 @@
-// app/about/page.tsx  (or components/AboutUsPage.tsx)
+// app/about/page.tsx
 import React from "react";
 
 const aboutPoints = [
@@ -6,45 +6,43 @@ const aboutPoints = [
     num: "1.",
     title: "Who We Are",
     body:
-      "You get a 2-week free trial to kick the Smarty tries. We want you to.",
+      "1 Global Enterprises Pte Ltd is a Singapore-headquartered business group with a strong presence across 16+ countries. We employ over 700 professionals who bring expertise and passion to every business vertical we operate in.",
   },
   {
     num: "2.",
-    title: "What Do We Do",
+    title: "What We Do",
     body:
-      "We give you a free course that guides you through the process.",
+      "Our portfolio spans Shipping, Logistics & Supply Chain, Product Distribution, Software Development & IT solutions, Renewable/Clean Energy supplies, and International Trading.",
   },
   {
     num: "3.",
-    title: "How Do We Help",
+    title: "How We Operate",
     body:
-      "Use our multimedia lectures, videos, and coaching sessions.",
+      "Each of our business units is managed by seasoned experts in their field, ensuring smooth operations, innovation, and successful implementation of global business plans.",
   },
   {
     num: "4.",
-    title: "Create success story",
+    title: "Our Global Footprint",
     body:
-      "With access to online learning resources anyone can transform.",
+      "From Southeast Asia and the Indian Subcontinent to the Middle East, USA, and UK – our network continues to expand, building trust and delivering value worldwide.",
   },
 ];
 
 export default function AboutPage() {
   return (
     <main className="relative">
-      {/* Container */}
       <section className="mx-auto w-full max-w-7xl px-6 py-16 md:py-24">
-        {/* Top row: heading, blurb, CTA */}
+        {/* Top Heading */}
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h1 className="text-4xl font-semibold tracking-tight text-gray-900 md:text-5xl">
               About Us
             </h1>
             <p className="mt-4 max-w-3xl text-lg leading-7 text-gray-600">
-              At Basnik Consultancy, we take pride in our values – service, integrity, and
-              excellence.
+              We are a diversified global enterprise driven by innovation, service,
+              and excellence – transforming industries and creating sustainable growth.
             </p>
           </div>
-
           <a
             href="#learn-more"
             className="inline-flex w-max items-center gap-2 rounded-xl bg-[#3B82F6] px-5 py-3 text-white shadow-md transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#3B82F6]"
@@ -63,9 +61,9 @@ export default function AboutPage() {
           </a>
         </div>
 
-        {/* Content grid */}
+        {/* Content Grid */}
         <div className="mt-12 grid grid-cols-1 gap-10 md:mt-16 md:grid-cols-2">
-          {/* Left: numbered points (2×2) */}
+          {/* Left side: Points */}
           <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
             {aboutPoints.map((pt) => (
               <div key={pt.num} className="max-w-sm">
@@ -80,43 +78,36 @@ export default function AboutPage() {
             ))}
           </div>
 
-          {/* Right: 2×2 image collage */}
+          {/* Right side: Image collage */}
           <div className="grid grid-cols-2 gap-6">
-            {/* Top-left (wide) */}
             <div className="col-span-2 overflow-hidden rounded-2xl shadow-sm">
               <img
-                src="/about-1.jpg" // replace with your image
-                alt="Interior scene 1"
+                src="/about-1.jpg"
+                alt="Global Shipping"
                 className="h-56 w-full object-cover md:h-64"
                 loading="lazy"
               />
             </div>
-
-            {/* Top-right small */}
             <div className="overflow-hidden rounded-2xl shadow-sm">
               <img
                 src="/about-2.jpg"
-                alt="Interior scene 2"
+                alt="Logistics operations"
                 className="h-48 w-full object-cover md:h-52"
                 loading="lazy"
               />
             </div>
-
-            {/* Bottom-left small */}
             <div className="overflow-hidden rounded-2xl shadow-sm">
               <img
                 src="/about-3.jpg"
-                alt="Interior scene 3"
+                alt="Renewable energy"
                 className="h-48 w-full object-cover md:h-52"
                 loading="lazy"
               />
             </div>
-
-            {/* Bottom row (full width) */}
             <div className="col-span-2 overflow-hidden rounded-2xl shadow-sm">
               <img
                 src="/about-4.jpg"
-                alt="Interior scene 4"
+                alt="Technology and IT services"
                 className="h-56 w-full object-cover md:h-64"
                 loading="lazy"
               />
@@ -125,7 +116,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* subtle background accents */}
+      {/* Background accents */}
       <div
         aria-hidden
         className="pointer-events-none absolute -left-40 -top-40 h-80 w-80 rounded-full bg-blue-200/50 blur-3xl"
