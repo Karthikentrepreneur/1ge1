@@ -1,104 +1,139 @@
-// AboutSection.tsx
-// Attractive + responsive About section that ONLY shows your content + one image
-// No extra packages required. Tailwind + CSS-only effects.
-
+// app/about/page.tsx  (or components/AboutUsPage.tsx)
 import React from "react";
 
-const AboutSection: React.FC = () => {
-  return (
-    <section
-      id="about"
-      className="relative overflow-hidden"
-    >
-      {/* Soft background accents (brand colors) */}
-      <div className="pointer-events-none absolute -top-40 -right-40 h-[28rem] w-[28rem] rounded-full blur-3xl opacity-40"
-           style={{ background: "radial-gradient(closest-side, rgba(22,199,154,.35), rgba(18,181,208,.18), rgba(10,132,255,.12), transparent 70%)" }} />
-      <div className="pointer-events-none absolute -bottom-40 -left-40 h-[26rem] w-[26rem] rounded-full blur-3xl opacity-30"
-           style={{ background: "radial-gradient(closest-side, rgba(10,132,255,.25), rgba(18,181,208,.15), transparent 65%)" }} />
+const aboutPoints = [
+  {
+    num: "1.",
+    title: "Who We Are",
+    body:
+      "You get a 2-week free trial to kick the Smarty tries. We want you to.",
+  },
+  {
+    num: "2.",
+    title: "What Do We Do",
+    body:
+      "We give you a free course that guides you through the process.",
+  },
+  {
+    num: "3.",
+    title: "How Do We Help",
+    body:
+      "Use our multimedia lectures, videos, and coaching sessions.",
+  },
+  {
+    num: "4.",
+    title: "Create success story",
+    body:
+      "With access to online learning resources anyone can transform.",
+  },
+];
 
-      <div className="container px-4 py-24">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14 items-center">
-          {/* IMAGE (on mobile first) */}
-          <div className="md:col-span-6 order-1 md:order-none">
-            {/* Gradient border + glassy card + hover shine */}
-            <div className="relative shine-card rounded-3xl p-[1px] bg-gradient-to-tr from-[#16C79A] via-[#12B5D0] to-[#0A84FF]">
-              <div className="relative rounded-3xl overflow-hidden bg-white/5 dark:bg-white/5 border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.35)] hover:shadow-[0_24px_100px_rgba(0,0,0,0.45)] transition-shadow duration-500">
-                <img
-                  src="/logitics.png"  // ensure this file is in your /public folder
-                  alt="1 Global Enterprises — a brighter, cleaner, and more connected world"
-                  className="w-full h-[320px] md:h-[460px] object-cover transition-transform duration-700 will-change-transform hover:scale-[1.02]"
-                  loading="lazy"
-                />
-                {/* Subtle spotlight that follows the mouse */}
-                <div
-                  className="pointer-events-none absolute inset-0 transition-opacity duration-300 opacity-0 hover:opacity-100"
-                  style={{
-                    background:
-                      "radial-gradient(600px circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,.09), transparent 40%)",
-                  }}
-                  onMouseMove={(e) => {
-                    const r = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
-                    (e.currentTarget as HTMLDivElement).style.setProperty("--mx", `${((e.clientX - r.left) / r.width) * 100}%`);
-                    (e.currentTarget as HTMLDivElement).style.setProperty("--my", `${((e.clientY - r.top) / r.height) * 100}%`);
-                  }}
-                />
-              </div>
-            </div>
+export default function AboutPage() {
+  return (
+    <main className="relative">
+      {/* Container */}
+      <section className="mx-auto w-full max-w-7xl px-6 py-16 md:py-24">
+        {/* Top row: heading, blurb, CTA */}
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h1 className="text-4xl font-semibold tracking-tight text-gray-900 md:text-5xl">
+              About Us
+            </h1>
+            <p className="mt-4 max-w-3xl text-lg leading-7 text-gray-600">
+              At Basnik Consultancy, we take pride in our values – service, integrity, and
+              excellence.
+            </p>
           </div>
 
-          {/* TEXT */}
-          <div className="md:col-span-6">
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4 text-gray-900 dark:text-white">
-              <span className="bg-gradient-to-r from-[#16C79A] via-[#12B5D0] to-[#0A84FF] bg-clip-text text-transparent">
-                1 Global Enterprises
-              </span>
-            </h2>
+          <a
+            href="#learn-more"
+            className="inline-flex w-max items-center gap-2 rounded-xl bg-[#3B82F6] px-5 py-3 text-white shadow-md transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#3B82F6]"
+          >
+            Learn More
+            <svg
+              className="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
+        </div>
 
-            {/* Decorative underline */}
-            <div className="h-1 w-24 rounded-full mb-6 bg-gradient-to-r from-[#16C79A] via-[#12B5D0] to-[#0A84FF]" />
+        {/* Content grid */}
+        <div className="mt-12 grid grid-cols-1 gap-10 md:mt-16 md:grid-cols-2">
+          {/* Left: numbered points (2×2) */}
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
+            {aboutPoints.map((pt) => (
+              <div key={pt.num} className="max-w-sm">
+                <div className="text-5xl font-semibold tracking-tight text-gray-900">
+                  {pt.num}
+                </div>
+                <h3 className="mt-2 text-xl font-semibold text-gray-900">
+                  {pt.title}
+                </h3>
+                <p className="mt-2 text-gray-600">{pt.body}</p>
+              </div>
+            ))}
+          </div>
 
-            <div className="space-y-4 text-lg md:text-xl leading-relaxed text-gray-700 dark:text-gray-300">
-              <p>
-                At the forefront of innovation, 1 Global Enterprises is driving progress across
-                renewable energy, food technology, supply chain solutions, software development,
-                and lubricant distribution.
-              </p>
-              <p>
-                We are committed to delivering sustainable growth, cutting-edge technologies, and
-                operational excellence that empower businesses worldwide. By combining innovation
-                with responsibility, we provide impactful solutions that help industries thrive in a
-                rapidly evolving global landscape.
-              </p>
-              <p>
-                With a clear vision for the future, 1 Global Enterprises is shaping a brighter, cleaner,
-                and more connected world.
-              </p>
+          {/* Right: 2×2 image collage */}
+          <div className="grid grid-cols-2 gap-6">
+            {/* Top-left (wide) */}
+            <div className="col-span-2 overflow-hidden rounded-2xl shadow-sm">
+              <img
+                src="/about-1.jpg" // replace with your image
+                alt="Interior scene 1"
+                className="h-56 w-full object-cover md:h-64"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Top-right small */}
+            <div className="overflow-hidden rounded-2xl shadow-sm">
+              <img
+                src="/about-2.jpg"
+                alt="Interior scene 2"
+                className="h-48 w-full object-cover md:h-52"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Bottom-left small */}
+            <div className="overflow-hidden rounded-2xl shadow-sm">
+              <img
+                src="/about-3.jpg"
+                alt="Interior scene 3"
+                className="h-48 w-full object-cover md:h-52"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Bottom row (full width) */}
+            <div className="col-span-2 overflow-hidden rounded-2xl shadow-sm">
+              <img
+                src="/about-4.jpg"
+                alt="Interior scene 4"
+                className="h-56 w-full object-cover md:h-64"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Scoped CSS (for the shiny gradient border effect) */}
-      <style>{`
-        .shine-card {
-          position: relative;
-          overflow: visible;
-        }
-        .shine-card::after {
-          content: "";
-          position: absolute;
-          inset: -1px;
-          border-radius: 1.5rem; /* matches rounded-3xl */
-          background: conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,.35), rgba(255,255,255,0) 30%, rgba(255,255,255,.35) 60%, rgba(255,255,255,0));
-          filter: blur(14px);
-          opacity: .18;
-          transition: opacity .4s ease;
-          pointer-events: none;
-        }
-        .shine-card:hover::after { opacity: .32; }
-      `}</style>
-    </section>
+      {/* subtle background accents */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-40 -top-40 h-80 w-80 rounded-full bg-blue-200/50 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-40 top-1/3 h-80 w-80 rounded-full bg-cyan-200/50 blur-3xl"
+      />
+    </main>
   );
-};
-
-export default AboutSection;
+}
