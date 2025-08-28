@@ -5,15 +5,14 @@ import AboutSection from "@/components/AboutSection";
 import GroupCompanies from "@/components/GroupCompanies";
 import Footer from "@/components/Footer";
 import ServicesAndSolution from "@/components/ServicesAndSolution";
-
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
       <Hero />
       <AboutSection />
+      <ServicesAndSolutions />
       <GroupCompanies />
-      <ServicesAndSolution />
       <Footer />
     </div>
   );
