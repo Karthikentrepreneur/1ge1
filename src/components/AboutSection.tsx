@@ -142,12 +142,12 @@ function BrandCollage() {
 
       {/* Grid collage (no white background) */}
       <div className="grid grid-cols-2 gap-3 md:gap-4">
-        <Tile src="/logistics.png" alt="Global Shipping" aspect="aspect-[4/3]" />
-        <Tile src="/biodiesel.png" alt="Biodiesel" aspect="aspect-[4/3]" />
+        <Tile src="/logistics.png" alt="Global Shipping" aspect="aspect-[4/4]" />
+        <Tile src="/biodiesel.png" alt="Biodiesel" aspect="aspect-[4/4]" />
 
         {/* Two stacked on right for a zig-zag rhythm */}
-        <Tile src="/software.jpg" alt="Technology & IT" aspect="aspect-[4/3]" className="md:mt-2" />
-        <Tile src="/logistics1.png" alt="Warehousing" aspect="aspect-[4/3]" className="md:-mt-2" />
+        <Tile src="/software.jpg" alt="Technology & IT" aspect="aspect-[4/4]" className="md:mt-2" />
+        <Tile src="/logistics1.png" alt="Warehousing" aspect="aspect-[4/4]" className="md:-mt-2" />
       </div>
 
       {/* soft inner ring to separate images from background */}
