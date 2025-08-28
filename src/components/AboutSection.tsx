@@ -85,7 +85,7 @@ export default function AboutPage() {
             {/* Left column */}
             <div className="space-y-4">
               <img
-                src="/OIP.jpg"
+                src="/logistics.png"
                 alt="Global shipping"
                 className="h-44 w-full rounded-lg object-cover md:h-52"
                 loading="lazy"
@@ -102,7 +102,7 @@ export default function AboutPage() {
             {/* Right column (shift the whole column down) */}
             <div className="space-y-4 md:pt-8">
               <img
-                src="/OIP1.jpg"
+                src="/biodiesel.png"
                 alt="Logistics operations"
                 className="h-44 w-full rounded-lg object-cover md:h-52"
                 loading="lazy"
