@@ -31,66 +31,64 @@ const aboutPoints = [
 export default function AboutPage() {
   return (
     <main className="relative">
-      <section className="mx-auto w-full max-w-6xl px-4 py-8">
-        {/* Heading */}
-        <div className="text-center">
-          <h1 className="text-3xl font-semibold tracking-tight text-gray-900 md:text-4xl">
-            About Us
-          </h1>
-          <p className="mt-2 max-w-2xl mx-auto text-base leading-6 text-gray-600">
-            A diversified global enterprise driven by innovation, service, and excellence – transforming industries and creating sustainable growth.
-          </p>
+      <section className="mx-auto w-full max-w-7xl px-6 py-12">
+        {/* Heading + button */}
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h1 className="text-4xl font-semibold text-gray-900">About Us</h1>
+            <p className="mt-2 max-w-xl text-gray-600">
+              A diversified global enterprise driven by innovation, service, and excellence – 
+              transforming industries and creating sustainable growth.
+            </p>
+          </div>
+          <a
+            href="#learn-more"
+            className="inline-flex items-center gap-2 rounded-lg bg-blue-500 px-5 py-3 text-white font-medium shadow hover:bg-blue-600 transition"
+          >
+            Learn More →
+          </a>
         </div>
 
-        {/* Points (stacked vertically) */}
-        <div className="mt-6 flex flex-col gap-4">
-          {aboutPoints.map((pt) => (
-            <div key={pt.num} className="flex items-start gap-4">
-              <div className="text-2xl font-bold text-blue-600">{pt.num}</div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">
+        {/* Grid: left text (points) + right images */}
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-10">
+          {/* Left: about points */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {aboutPoints.map((pt) => (
+              <div key={pt.num}>
+                <div className="text-3xl font-bold text-blue-600">{pt.num}</div>
+                <h3 className="mt-1 text-lg font-semibold text-gray-900">
                   {pt.title}
                 </h3>
-                <p className="text-gray-600 text-sm mt-1">{pt.body}</p>
+                <p className="mt-1 text-gray-600 text-sm">{pt.body}</p>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* Image row (horizontal on desktop, stacked on mobile) */}
-        <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <img
-            src="/OIP.jpg"
-            alt="Global shipping"
-            className="h-40 w-full object-cover rounded-xl shadow-sm"
-          />
-          <img
-            src="/OIP1.jpg"
-            alt="Logistics operations"
-            className="h-40 w-full object-cover rounded-xl shadow-sm"
-          />
-          <img
-            src="/renew.jpg"
-            alt="Renewable energy"
-            className="h-40 w-full object-cover rounded-xl shadow-sm"
-          />
-          <img
-            src="/software.jpg"
-            alt="Technology and IT services"
-            className="h-40 w-full object-cover rounded-xl shadow-sm"
-          />
+          {/* Right: image collage */}
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src="/OIP.jpg"
+              alt="Global shipping"
+              className="h-40 w-full object-cover rounded-lg shadow"
+            />
+            <img
+              src="/OIP1.jpg"
+              alt="Logistics"
+              className="h-40 w-full object-cover rounded-lg shadow"
+            />
+            <img
+              src="/renew.jpg"
+              alt="Renewable energy"
+              className="h-40 w-full object-cover rounded-lg shadow"
+            />
+            <img
+              src="/software.jpg"
+              alt="Technology"
+              className="h-40 w-full object-cover rounded-lg shadow"
+            />
+          </div>
         </div>
       </section>
-
-      {/* Subtle background accents (optional) */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -left-32 -top-32 h-64 w-64 rounded-full bg-blue-200/50 blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-32 top-1/3 h-64 w-64 rounded-full bg-cyan-200/50 blur-3xl"
-      />
     </main>
   );
 }
