@@ -60,22 +60,22 @@ export default function AboutPage() {
         {/* Image row (horizontal on desktop, stacked on mobile) */}
         <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
           <img
-            src="/about-1.jpg"
+            src="/OIP.jpg"
             alt="Global shipping"
             className="h-40 w-full object-cover rounded-xl shadow-sm"
           />
           <img
-            src="/about-2.jpg"
+            src="/OIP1.jpg"
             alt="Logistics operations"
             className="h-40 w-full object-cover rounded-xl shadow-sm"
           />
           <img
-            src="/about-3.jpg"
+            src="/renew.jpg"
             alt="Renewable energy"
             className="h-40 w-full object-cover rounded-xl shadow-sm"
           />
           <img
-            src="/about-4.jpg"
+            src="/software.jpg"
             alt="Technology and IT services"
             className="h-40 w-full object-cover rounded-xl shadow-sm"
           />
