@@ -50,7 +50,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
               {aboutPoints.map((pt) => (
                 <div key={pt.num}>
-                  <div className="text-4xl md:text-5xl font-semibold text-gray-900">
+                  <div className="text-2xl md:text-3xl font-semibold text-gray-900">
                     {pt.num}
                   </div>
                   <h3 className="mt-1 text-xl font-semibold text-gray-900">
