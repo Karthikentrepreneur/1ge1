@@ -30,7 +30,7 @@ const Hero = () => {
           className="relative text-white"
           style={{
             background:
-              "linear-gradient(135deg, #ffffff 0%, #04ADCE 25%, #ffffff 50%, #009DD9 75%, #ffffff 100%)",
+              "linear-gradient(135deg, #00004A 0%, #04ADCE 25%, #000000 50%, #009DD9 75%, #083452 100%)",
           }}
         >
           <div className="mx-auto flex h-full w-full max-w-6xl items-center px-6 py-16 sm:px-10">
@@ -94,9 +94,6 @@ const Hero = () => {
 
       {/* Logos Section */}
       <div className="bg-white py-12">
-        <h2 className="mb-6 text-center text-lg font-semibold text-gray-800">
-          Group of Companies
-        </h2>
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-10 px-6">
           {logos.map((logo, i) => (
             <img
