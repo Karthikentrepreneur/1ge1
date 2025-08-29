@@ -1,105 +1,133 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, Navlink } from "react-router-dom";
 import { useState } from "react";
 
 const Header = () => {
-  // Brand colors from logo
-  const BRAND = {
-    primary: "#07B5C9", // teal
-    text: "#565657",    // dark grey
-    border: "#C3C5C5",  // light grey
-    soft: "#F8F9F9",    // off-white
-  };
-
   const [open, setOpen] = useState(false);
 
-  const baseLink =
-    "relative font-medium transition-colors text-gray-700 hover:text-[#16C79A] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-[#16C79A] after:transition-all";
-  const active =
-    "text-[#16C79A] after:w-full"; // underline + active color
-
   const navItems = [
-    { to: "/", label: "Home" },
     { to: "/about", label: "About Us" },
-    
-    { to: "/contact", label: "Contact" },
+    { to: "/newsroom", label: "Newsroom" },
+    { to: "/insights", label: "Insights" },
+    { to: "/investors", label: "Investor Relations" },
+    { to: "/sustainability", label: "Corporate sustainability" },
+    { to: "/careers", label: "Careers" },
   ];
 
+  const linkBase =
+    "relative text-[15px] text-gray-800 hover:text-black transition-colors";
+  const linkActive = "text-black";
+
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/80"
-      style={{
-        backgroundColor: "#ffffff",
-        borderBottom: `1px solid ${BRAND.border}`,
-      }}
-    >
-      <div className="container mx-auto px-4" style={{ backgroundColor: BRAND.soft }}>
-        <div className="flex items-center justify-between py-3">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
+    <header className="fixed inset-x-0 top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200">
+      <div className="mx-auto w-full max-w-screen-2xl px-4">
+        {/* Top row */}
+        <div className="flex h-14 items-center justify-between">
+          {/* Logo (kept your file; size tightened to match look) */}
+          <Link to="/" className="flex items-center">
             <img
-              alt="1 Global Enterprises"
-              className="h-12 w-auto object-contain"
               src="/globallogo.png"
+              alt="1 Global Enterprises"
+              className="h-7 w-auto object-contain"
             />
           </Link>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <NavLink
+              <Navlink
                 key={item.to}
                 to={item.to}
-                className={({ isActive }) => `${baseLink} ${isActive ? active : ""}`}
                 end={item.to === "/"}
+                className={({ isActive }) =>
+                  `${linkBase} ${isActive ? linkActive : ""}`
+                }
               >
                 {item.label}
-              </NavLink>
+              </Navlink>
             ))}
-            {/* Optional CTA */}
-            <Link
-              to="/contact"
-              className="rounded-full bg-[#07B5C9] px-4 py-2 text-white shadow hover:brightness-95"
-            >
-              Get Quote
-            </Link>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            aria-label="Toggle menu"
-            className="md:hidden p-2 text-gray-700 hover:text-[#16C79A]"
-            onClick={() => setOpen((o) => !o)}
-          >
-            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+          {/* Right utilities */}
+          <div className="flex items-center gap-2">
+            {/* Search icon (inline SVG to avoid extra deps) */}
+            <button
+              aria-label="Search"
+              className="hidden md:inline-flex p-2 rounded hover:bg-gray-100 text-gray-700 hover:text-black"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                className="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </button>
+
+            {/* Mobile menu button */}
+            <button
+              aria-label="Toggle menu"
+              className="md:hidden p-2 rounded hover:bg-gray-100 text-gray-700"
+              onClick={() => setOpen((o) => !o)}
+            >
+              <svg
+                className="h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+              </svg>
+            </button>
+          </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile menu */}
         {open && (
-          <div className="md:hidden pb-3" style={{ backgroundColor: BRAND.soft }}>
-            <nav className="flex flex-col">
+          <div className="md:hidden border-t border-gray-200">
+            <nav className="flex flex-col py-2">
               {navItems.map((item) => (
-                <NavLink
+                <Navlink
                   key={item.to}
                   to={item.to}
+                  end={item.to === "/"}
                   onClick={() => setOpen(false)}
                   className={({ isActive }) =>
-                    `py-2 text-left ${isActive ? "text-[#16C79A]" : "text-gray-700"} font-medium hover:text-[#16C79A]`
+                    `px-1 py-2 ${linkBase} ${isActive ? linkActive : ""}`
                   }
-                  end={item.to === "/"}
                 >
                   {item.label}
-                </NavLink>
+                </Navlink>
               ))}
-              <Link
-                to="/contact"
+
+              {/* Mobile search */}
+              <button
                 onClick={() => setOpen(false)}
-                className="mt-2 inline-block rounded-full bg-[#07B5C9] px-4 py-2 text-center text-white shadow hover:brightness-95"
+                className="mt-1 inline-flex items-center gap-2 px-1 py-2 text-[15px] text-gray-800 hover:text-black"
               >
-                Get Quote
-              </Link>
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                Search
+              </button>
             </nav>
           </div>
         )}
