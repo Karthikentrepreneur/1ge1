@@ -40,7 +40,7 @@ const Hero = () => {
                 1 GLOBAL ENTERPRISES
               </p>
 
-              <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl text-white">
+              <h1 className="text-3xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl text-white">
                 2025 Midyear Outlook:
                 <br />
                 <span className="text-white">
