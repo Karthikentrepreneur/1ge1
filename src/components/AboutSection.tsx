@@ -18,7 +18,7 @@ export default function AboutPage() {
             <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-black">
               About 1 Global Enterprises
               <br className="hidden sm:block" />
-              — who we are and what we do
+              who we are and what we do
             </h1>
 
             <p
@@ -65,8 +65,7 @@ export default function AboutPage() {
               style={{ background: UI.gradient }}
             >
               <h3 className="text-2xl font-extrabold leading-snug">
-                Stay current with the latest news and announcements from 1
-                Global.
+                Stay current with the latest news and announcements from 1 Global Enterprises.
               </h3>
 
               <a
