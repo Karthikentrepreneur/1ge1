@@ -110,22 +110,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Brand strip with your logo (kept minimal like BlackRock) */}
-      <div className="bg-white">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-6 py-6 sm:px-10">
-          <div className="flex items-center gap-3">
-            <img
-              src="/globallogo.png"
-              alt="1 Global Enterprises"
-              className="h-9 w-auto object-contain"
-            />
-            <div className="hidden text-sm text-gray-500 sm:block">
-              Trusted capabilities across Renewable Energy, Supply Chain,
-              Lubricants & Software
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Partners / Group logos */}
       <div className="bg-white py-10">
