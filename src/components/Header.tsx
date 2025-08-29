@@ -18,7 +18,7 @@ const Header = () => {
   const linkActive = "text-black";
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200">
+    <header className="fixed inset-x-0 top-0 z-50 bg-white border-b border-gray-200">
       <div className="mx-auto w-full max-w-screen-2xl px-4">
         <div className="flex h-14 items-center justify-between">
           {/* Logo */}
