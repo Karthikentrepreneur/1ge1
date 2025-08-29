@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+           import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   const logos = [
@@ -88,7 +88,7 @@ const Hero = () => {
           className="relative min-h-[48vh] lg:min-h-0"
           style={{
             backgroundImage:
-              "linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.05)), url('/logistics.png')",
+              "linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.05)), url('/ship.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
