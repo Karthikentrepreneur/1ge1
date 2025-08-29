@@ -42,6 +42,13 @@ export default function AboutPage() {
               and international trading. Our focus is simple: expand access, drive
               innovation, and create durable value for clients and communities.
             </p>
+            
+              <p
+              className="mt-3 max-w-2xl text-[15px] leading-7"
+              style={{ color: THEME.gray700 }}
+            >
+The group employs over 700 staff in 16+ countries spread over South East Asia, Indian Sub-con, Middle East, USA & UK. Each of our business unit is run and managed experts in their own field having very good experience to ensure successful implementation of our business plans.
+            </p>
 
             <a
               href="/insights"
