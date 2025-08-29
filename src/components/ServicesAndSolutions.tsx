@@ -17,7 +17,7 @@ export default function AboutPage() {
           <div className="md:col-span-6">
             <div className="overflow-hidden rounded-[10px] shadow-sm">
               <img
-                src="/about-hero.jpg"
+                src="/software.jpg"
                 alt="About 1 Global Enterprises"
                 className="block h-auto w-full object-cover"
               />
