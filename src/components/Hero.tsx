@@ -110,22 +110,6 @@ const Hero = () => {
         </div>
       </div>
 
-
-      {/* Partners / Group logos */}
-      <div className="bg-white py-10">
-        <h2 className="mb-5 text-center text-lg font-semibold text-gray-800">
-          Group of Companies
-        </h2>
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-10 px-6">
-          {logos.map((logo, i) => (
-            <img
-              key={i}
-              src={logo}
-              alt={`Company logo ${i + 1}`}
-              className="h-14 w-auto object-contain opacity-90 grayscale hover:grayscale-0"
-            />
-          ))}
-        </div>
       </div>
     </section>
   );
