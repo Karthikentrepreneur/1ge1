@@ -27,7 +27,7 @@ export default function AboutPage() {
           {/* RIGHT: Text + compact spacing */}
           <div className="md:col-span-7">
             <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight text-black">
-              About 1 Global: Building growth and prosperity
+              About 1 Global Enterprises
             </h1>
 
             <p className="mt-3 text-[15px] leading-7" style={{ color: THEME.gray700 }}>
