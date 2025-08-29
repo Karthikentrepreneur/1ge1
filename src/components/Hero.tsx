@@ -36,7 +36,7 @@ const Hero = () => {
           <div className="mx-auto flex h-full w-full max-w-6xl items-center px-6 py-16 sm:px-10">
             <div className="max-w-2xl">
               {/* small kicker */}
-              <p className="mb-4 text-xs font-semibold tracking-[0.08em] text-[color:var(--brand-teal)]">
+              <p className="mb-4 text-xs font-semibold tracking-[0.08em] text-[]">
                 1 GLOBAL ENTERPRISES
               </p>
 
