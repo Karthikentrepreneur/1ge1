@@ -1,58 +1,45 @@
 // app/about/page.tsx
 import React from "react";
 
-const BRAND = {
-  offwhite: "#f9f8f4",   // page background (like screenshot)
+const UI = {
+  orange: "#ff5a1f",
   black: "#0b0b0b",
   gray700: "#334155",
-  teal: "#04ADCE",       // from your previous gradient
-  blue: "#009DD9",       // from your previous gradient
+  ring: "#e5e7eb",
 };
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen" style={{ backgroundColor: BRAND.offwhite }}>
-      <section className="mx-auto w-full max-w-7xl px-6 py-12 md:py-16">
-        <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-12">
-          {/* LEFT: Large image with credit bar */}
-          <div className="md:col-span-6">
-            <figure className="relative overflow-hidden rounded-[10px] shadow">
-              <img
-                src="/logistics2.png" // replace with your image
-                alt="About 1 Global Enterprises"
-                className="block h-auto w-full object-cover"
-              />
-              <figcaption className="absolute bottom-0 left-0 right-0 bg-black/70 px-4 py-3 text-[12px] leading-5 text-white">
-                Image courtesy of 1 Global Enterprises. © 2025 All rights reserved.
-              </figcaption>
-            </figure>
-          </div>
-
-          {/* RIGHT: Headline, body, CTA */}
-          <div className="md:col-span-6">
-            <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight" style={{ color: BRAND.black }}>
-              About 1 Global: Building growth and prosperity
+    <main className="bg-white">
+      {/* ===== Top lead section ===== */}
+      <section className="mx-auto w-full max-w-7xl px-6 pt-12 md:pt-16">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
+          {/* Left: Headline + copy + text link */}
+          <div className="md:col-span-8">
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-black">
+              About 1 Global Enterprises
+              <br className="hidden sm:block" />
+              — who we are and what we do
             </h1>
 
-            <p className="mt-4 max-w-2xl text-[15px] leading-7" style={{ color: BRAND.gray700 }}>
-              We’re a Singapore-headquartered group operating across renewable energy, logistics & supply chain,
-              product distribution, software/IT, and international trading. Our focus is simple: expand access,
-              drive innovation, and create durable value for clients and communities.
+            <p className="mt-5 max-w-3xl text-[15px] leading-7" style={{ color: UI.gray700 }}>
+              We’re a Singapore-headquartered group operating across logistics & supply chain,
+              product distribution, software/IT, renewable energy and international trading.
+              Our mission: deliver integrated, best-in-class solutions that create durable value.
             </p>
 
-            {/* CTA (black button, brand-gradient chevron) */}
             <a
-              href="/insights"
-              className="mt-8 inline-flex items-center gap-3 rounded-[6px] bg-black px-5 py-3 text-sm font-semibold text-white shadow hover:bg-gray-900 transition"
+              href="/press"
+              className="mt-6 inline-flex items-center gap-3 text-[15px] font-semibold text-black"
             >
               <span
                 aria-hidden
-                className="inline-flex h-6 w-6 items-center justify-center rounded-[4px] text-white"
-                style={{ background: `linear-gradient(135deg, ${BRAND.teal}, ${BRAND.blue})` }}
+                className="inline-flex h-5 w-5 items-center justify-center rounded-[4px] text-white"
+                style={{ backgroundColor: UI.orange }}
               >
                 <svg
                   viewBox="0 0 24 24"
-                  className="h-3.5 w-3.5"
+                  className="h-3 w-3"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="3"
@@ -62,17 +49,127 @@ export default function AboutPage() {
                   <path d="M8 5l8 7-8 7" />
                 </svg>
               </span>
-              Read our story
+              Read the press release
             </a>
 
-            {/* Optional tiny accent underline (brand gradient) */}
-            <div
-              className="mt-6 h-[3px] w-12 rounded"
-              style={{ background: `linear-gradient(135deg, ${BRAND.teal}, ${BRAND.blue})` }}
-            />
+            {/* thin divider like screenshot */}
+            <div className="mt-10 h-px w-full bg-gradient-to-r from-transparent via-black/30 to-transparent" />
           </div>
+
+          {/* Right: promo panel */}
+          <aside className="md:col-span-4">
+            <div className="rounded-2xl bg-black px-6 py-8 text-white shadow-sm">
+              <h3 className="text-2xl font-extrabold leading-snug">
+                Stay current with the latest news and announcements from 1 Global.
+              </h3>
+
+              <a
+                href="/news"
+                className="mt-6 inline-flex items-center gap-3 text-[15px] font-semibold"
+              >
+                <span
+                  aria-hidden
+                  className="inline-flex h-5 w-5 items-center justify-center rounded-[4px] text-white"
+                  style={{ backgroundColor: UI.orange }}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-3 w-3"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M8 5l8 7-8 7" />
+                  </svg>
+                </span>
+                Read and subscribe to 1 Global News
+              </a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      {/* ===== Feature cards ===== */}
+      <section className="mx-auto w-full max-w-7xl px-6 pb-16 pt-10">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <FeatureCard
+            eyebrow="INVESTMENT STEWARDSHIP"
+            title="Explore our 2024 annual report on Investment Stewardship"
+            body="Investment stewardship is core to our role as a fiduciary. Explore how we engage on governance, sustainability and long-term value creation across markets."
+            cta="Read our Investment Stewardship report"
+          />
+
+          <FeatureCard
+            eyebrow="GLOBAL BULLETIN"
+            title="Our latest views on market volatility"
+            body="Our experts share perspectives on policy, protectionism and the implications for global markets—plus how we navigate risk and opportunity."
+            cta="Read the market volatility bulletin"
+          />
         </div>
       </section>
     </main>
+  );
+}
+
+/* ---------- Reusable card ---------- */
+function FeatureCard({
+  eyebrow,
+  title,
+  body,
+  cta,
+}: {
+  eyebrow: string;
+  title: string;
+  body: string;
+  cta: string;
+}) {
+  return (
+    <article
+      className="rounded-2xl bg-white p-6 shadow-sm ring-1"
+      style={{ ringColor: UI.ring }}
+    >
+      {/* Eyebrow with orange underline */}
+      <div className="mb-4">
+        <p className="text-[12px] font-extrabold tracking-wide text-black">
+          {eyebrow}
+        </p>
+        <div
+          className="mt-1 h-[3px] w-10 rounded"
+          style={{ backgroundColor: UI.orange }}
+        />
+      </div>
+
+      <h3 className="text-2xl md:text-3xl font-extrabold leading-snug text-black">
+        {title}
+      </h3>
+
+      <p className="mt-3 text-[15px] leading-7 text-[#475569]">{body}</p>
+
+      {/* Bottom CTA with left chevron box */}
+      <a
+        href="#"
+        className="mt-6 inline-flex items-center gap-3 text-[15px] font-extrabold text-black"
+      >
+        <span
+          aria-hidden
+          className="inline-flex h-8 w-8 items-center justify-center rounded-[6px] bg-black text-white"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            className="h-4 w-4"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M8 5l8 7-8 7" />
+          </svg>
+        </span>
+        {cta}
+      </a>
+    </article>
   );
 }
