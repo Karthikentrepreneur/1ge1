@@ -24,7 +24,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
-              src="/globallogo.png"
+              src="/1global.png"
               alt="1 Global Enterprises"
               className="h-9 w-auto object-contain"
             />
