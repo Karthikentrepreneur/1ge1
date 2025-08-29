@@ -2,8 +2,7 @@
 import React from "react";
 
 const UI = {
-  gradient:
-    "linear-gradient(135deg, #00004A 0%, #04ADCE 25%, #000000 50%, #009DD9 75%, #083452 100%)",
+  gradient: "linear-gradient(135deg, #04ADCE 0%, #009DD9 50%, #083452 100%)",
   gray700: "#334155",
   ring: "#e5e7eb",
 };
@@ -22,10 +21,14 @@ export default function AboutPage() {
               — who we are and what we do
             </h1>
 
-            <p className="mt-5 max-w-3xl text-[15px] leading-7" style={{ color: UI.gray700 }}>
-              We’re a Singapore-headquartered group operating across logistics & supply chain,
-              product distribution, software/IT, renewable energy and international trading.
-              Our mission: deliver integrated, best-in-class solutions that create durable value.
+            <p
+              className="mt-5 max-w-3xl text-[15px] leading-7"
+              style={{ color: UI.gray700 }}
+            >
+              We’re a Singapore-headquartered group operating across logistics &
+              supply chain, product distribution, software/IT, renewable energy
+              and international trading. Our mission: deliver integrated,
+              best-in-class solutions that create durable value.
             </p>
 
             <a
@@ -52,7 +55,7 @@ export default function AboutPage() {
               Read the press release
             </a>
 
-            <div className="mt-10 h-px w-full bg-gradient-to-r from-transparent via-black/30 to-transparent" />
+            <div className="mt-10 h-px w-full bg-gradient-to-r from-transparent via-black/20 to-transparent" />
           </div>
 
           {/* Right: promo panel with gradient bg */}
@@ -62,7 +65,8 @@ export default function AboutPage() {
               style={{ background: UI.gradient }}
             >
               <h3 className="text-2xl font-extrabold leading-snug">
-                Stay current with the latest news and announcements from 1 Global.
+                Stay current with the latest news and announcements from 1
+                Global.
               </h3>
 
               <a
@@ -132,11 +136,18 @@ function FeatureCard({
       style={{ ringColor: UI.ring }}
     >
       <div className="mb-4">
-        <p className="text-[12px] font-extrabold tracking-wide text-black">{eyebrow}</p>
-        <div className="mt-1 h-[3px] w-10 rounded" style={{ background: UI.gradient }} />
+        <p className="text-[12px] font-extrabold tracking-wide text-black">
+          {eyebrow}
+        </p>
+        <div
+          className="mt-1 h-[3px] w-10 rounded"
+          style={{ background: UI.gradient }}
+        />
       </div>
 
-      <h3 className="text-2xl md:text-3xl font-extrabold leading-snug text-black">{title}</h3>
+      <h3 className="text-2xl md:text-3xl font-extrabold leading-snug text-black">
+        {title}
+      </h3>
       <p className="mt-3 text-[15px] leading-7 text-[#475569]">{body}</p>
 
       <a
