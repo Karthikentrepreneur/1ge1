@@ -1,16 +1,17 @@
 // app/about/page.tsx
 import React from "react";
 
-const THEME = {
-  offwhite: "#f9f8f4", // page background
+const BRAND = {
+  offwhite: "#f9f8f4",   // page background (like screenshot)
   black: "#0b0b0b",
   gray700: "#334155",
-  orange: "#ff5a1f",
+  teal: "#04ADCE",       // from your previous gradient
+  blue: "#009DD9",       // from your previous gradient
 };
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen" style={{ backgroundColor: THEME.offwhite }}>
+    <main className="min-h-screen" style={{ backgroundColor: BRAND.offwhite }}>
       <section className="mx-auto w-full max-w-7xl px-6 py-12 md:py-16">
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-12">
           {/* LEFT: Large image with credit bar */}
@@ -29,36 +30,29 @@ export default function AboutPage() {
 
           {/* RIGHT: Headline, body, CTA */}
           <div className="md:col-span-6">
-            <h1
-              className="text-3xl font-extrabold leading-tight sm:text-4xl"
-              style={{ color: THEME.black }}
-            >
+            <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight" style={{ color: BRAND.black }}>
               About 1 Global: Building growth and prosperity
             </h1>
 
-            <p
-              className="mt-4 max-w-2xl text-[15px] leading-7"
-              style={{ color: THEME.gray700 }}
-            >
-              We’re a Singapore-headquartered group operating across renewable
-              energy, logistics & supply chain, product distribution, software/IT,
-              and international trading. Our focus is simple: expand access, drive
-              innovation, and create durable value for clients and communities.
+            <p className="mt-4 max-w-2xl text-[15px] leading-7" style={{ color: BRAND.gray700 }}>
+              We’re a Singapore-headquartered group operating across renewable energy, logistics & supply chain,
+              product distribution, software/IT, and international trading. Our focus is simple: expand access,
+              drive innovation, and create durable value for clients and communities.
             </p>
 
+            {/* CTA (black button, brand-gradient chevron) */}
             <a
               href="/insights"
               className="mt-8 inline-flex items-center gap-3 rounded-[6px] bg-black px-5 py-3 text-sm font-semibold text-white shadow hover:bg-gray-900 transition"
             >
-              {/* orange chevron box like the screenshot */}
               <span
-                className="inline-flex h-6 w-6 items-center justify-center rounded-[4px]"
-                style={{ backgroundColor: THEME.orange }}
                 aria-hidden
+                className="inline-flex h-6 w-6 items-center justify-center rounded-[4px] text-white"
+                style={{ background: `linear-gradient(135deg, ${BRAND.teal}, ${BRAND.blue})` }}
               >
                 <svg
                   viewBox="0 0 24 24"
-                  className="h-3.5 w-3.5 text-white"
+                  className="h-3.5 w-3.5"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="3"
@@ -70,6 +64,12 @@ export default function AboutPage() {
               </span>
               Read our story
             </a>
+
+            {/* Optional tiny accent underline (brand gradient) */}
+            <div
+              className="mt-6 h-[3px] w-12 rounded"
+              style={{ background: `linear-gradient(135deg, ${BRAND.teal}, ${BRAND.blue})` }}
+            />
           </div>
         </div>
       </section>
