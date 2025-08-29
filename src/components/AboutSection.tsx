@@ -2,8 +2,8 @@
 import React from "react";
 
 const UI = {
-  orange: "#ff5a1f",
-  black: "#0b0b0b",
+  gradient:
+    "linear-gradient(135deg, #00004A 0%, #04ADCE 25%, #000000 50%, #009DD9 75%, #083452 100%)",
   gray700: "#334155",
   ring: "#e5e7eb",
 };
@@ -14,7 +14,7 @@ export default function AboutPage() {
       {/* ===== Top lead section ===== */}
       <section className="mx-auto w-full max-w-7xl px-6 pt-12 md:pt-16">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
-          {/* Left: Headline + copy + text link */}
+          {/* Left: Headline */}
           <div className="md:col-span-8">
             <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-black">
               About 1 Global Enterprises
@@ -35,7 +35,7 @@ export default function AboutPage() {
               <span
                 aria-hidden
                 className="inline-flex h-5 w-5 items-center justify-center rounded-[4px] text-white"
-                style={{ backgroundColor: UI.orange }}
+                style={{ background: UI.gradient }}
               >
                 <svg
                   viewBox="0 0 24 24"
@@ -52,13 +52,15 @@ export default function AboutPage() {
               Read the press release
             </a>
 
-            {/* thin divider like screenshot */}
             <div className="mt-10 h-px w-full bg-gradient-to-r from-transparent via-black/30 to-transparent" />
           </div>
 
-          {/* Right: promo panel */}
+          {/* Right: promo panel with gradient bg */}
           <aside className="md:col-span-4">
-            <div className="rounded-2xl bg-black px-6 py-8 text-white shadow-sm">
+            <div
+              className="rounded-2xl px-6 py-8 text-white shadow-sm"
+              style={{ background: UI.gradient }}
+            >
               <h3 className="text-2xl font-extrabold leading-snug">
                 Stay current with the latest news and announcements from 1 Global.
               </h3>
@@ -70,7 +72,7 @@ export default function AboutPage() {
                 <span
                   aria-hidden
                   className="inline-flex h-5 w-5 items-center justify-center rounded-[4px] text-white"
-                  style={{ backgroundColor: UI.orange }}
+                  style={{ background: UI.gradient }}
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -97,7 +99,7 @@ export default function AboutPage() {
           <FeatureCard
             eyebrow="INVESTMENT STEWARDSHIP"
             title="Explore our 2024 annual report on Investment Stewardship"
-            body="Investment stewardship is core to our role as a fiduciary. Explore how we engage on governance, sustainability and long-term value creation across markets."
+            body="Investment stewardship is core to our role as a fiduciary. Explore how we engage on governance, sustainability and long-term value creation."
             cta="Read our Investment Stewardship report"
           />
 
@@ -113,7 +115,6 @@ export default function AboutPage() {
   );
 }
 
-/* ---------- Reusable card ---------- */
 function FeatureCard({
   eyebrow,
   title,
@@ -130,31 +131,22 @@ function FeatureCard({
       className="rounded-2xl bg-white p-6 shadow-sm ring-1"
       style={{ ringColor: UI.ring }}
     >
-      {/* Eyebrow with orange underline */}
       <div className="mb-4">
-        <p className="text-[12px] font-extrabold tracking-wide text-black">
-          {eyebrow}
-        </p>
-        <div
-          className="mt-1 h-[3px] w-10 rounded"
-          style={{ backgroundColor: UI.orange }}
-        />
+        <p className="text-[12px] font-extrabold tracking-wide text-black">{eyebrow}</p>
+        <div className="mt-1 h-[3px] w-10 rounded" style={{ background: UI.gradient }} />
       </div>
 
-      <h3 className="text-2xl md:text-3xl font-extrabold leading-snug text-black">
-        {title}
-      </h3>
-
+      <h3 className="text-2xl md:text-3xl font-extrabold leading-snug text-black">{title}</h3>
       <p className="mt-3 text-[15px] leading-7 text-[#475569]">{body}</p>
 
-      {/* Bottom CTA with left chevron box */}
       <a
         href="#"
         className="mt-6 inline-flex items-center gap-3 text-[15px] font-extrabold text-black"
       >
         <span
           aria-hidden
-          className="inline-flex h-8 w-8 items-center justify-center rounded-[6px] bg-black text-white"
+          className="inline-flex h-8 w-8 items-center justify-center rounded-[6px] text-white"
+          style={{ background: UI.gradient }}
         >
           <svg
             viewBox="0 0 24 24"
