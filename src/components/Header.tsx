@@ -1,4 +1,4 @@
-import { Link, Navlink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 
 const Header = () => {
@@ -20,9 +20,8 @@ const Header = () => {
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200">
       <div className="mx-auto w-full max-w-screen-2xl px-4">
-        {/* Top row */}
         <div className="flex h-14 items-center justify-between">
-          {/* Logo (kept your file; size tightened to match look) */}
+          {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
               src="/globallogo.png"
@@ -34,7 +33,7 @@ const Header = () => {
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <Navlink
+              <NavLink
                 key={item.to}
                 to={item.to}
                 end={item.to === "/"}
@@ -43,13 +42,12 @@ const Header = () => {
                 }
               >
                 {item.label}
-              </Navlink>
+              </NavLink>
             ))}
           </nav>
 
-          {/* Right utilities */}
+          {/* Right: search + mobile toggle */}
           <div className="flex items-center gap-2">
-            {/* Search icon (inline SVG to avoid extra deps) */}
             <button
               aria-label="Search"
               className="hidden md:inline-flex p-2 rounded hover:bg-gray-100 text-gray-700 hover:text-black"
@@ -68,7 +66,6 @@ const Header = () => {
               </svg>
             </button>
 
-            {/* Mobile menu button */}
             <button
               aria-label="Toggle menu"
               className="md:hidden p-2 rounded hover:bg-gray-100 text-gray-700"
@@ -96,7 +93,7 @@ const Header = () => {
           <div className="md:hidden border-t border-gray-200">
             <nav className="flex flex-col py-2">
               {navItems.map((item) => (
-                <Navlink
+                <NavLink
                   key={item.to}
                   to={item.to}
                   end={item.to === "/"}
@@ -106,10 +103,8 @@ const Header = () => {
                   }
                 >
                   {item.label}
-                </Navlink>
+                </NavLink>
               ))}
-
-              {/* Mobile search */}
               <button
                 onClick={() => setOpen(false)}
                 className="mt-1 inline-flex items-center gap-2 px-1 py-2 text-[15px] text-gray-800 hover:text-black"
