@@ -1,132 +1,67 @@
-// app/about/page.tsx
+// app/feature/page.tsx
 import React from "react";
 
-/** Brand colors (logo accents) */
 const BRAND = {
   teal: "#04ADCE",
   blue: "#009DD9",
+  offwhite: "#f9f8f4", // light beige background
   slate900: "#0f172a",
-  slate600: "#475569",
-  slate200: "#e2e8f0",
+  slate700: "#334155",
 };
 
-const aboutPoints = [
-  {
-    num: "1",
-    title: "Who We Are",
-    body:
-      "1 Global Enterprises Pte Ltd is a Singapore-headquartered group operating in 16+ countries with 700+ professionals.",
-  },
-  {
-    num: "2",
-    title: "What We Do",
-    body:
-      "Shipping, Logistics & Supply Chain, Product Distribution, Software/IT, Renewable Energy, and International Trading.",
-  },
-  {
-    num: "3",
-    title: "How We Help",
-    body:
-      "Expert-led business units deliver reliable execution, innovation, and compliance across global markets.",
-  },
-  {
-    num: "4",
-    title: "Create success story",
-    body:
-      "With access to technology, partnerships, and sustainable practices, we help clients scale with confidence.",
-  },
-];
-
-export default function AboutPage() {
+export default function FeaturePage() {
   return (
-    <main className="bg-white">
-      <section className="mx-auto w-full max-w-7xl px-6 py-12 md:py-16">
-        {/* Heading */}
-        <div className="max-w-2xl">
-          <h1
-            className="text-4xl font-semibold tracking-tight md:text-5xl"
-            style={{ color: BRAND.slate900 }}
-          >
-            About Us
-          </h1>
-          <p
-            className="mt-3 text-[15px] leading-7"
-            style={{ color: BRAND.slate600 }}
-          >
-            At 1 Global Enterprises, we take pride in our values — service,
-            integrity, and excellence.
-          </p>
-        </div>
+    <main className="min-h-screen" style={{ backgroundColor: BRAND.offwhite }}>
+      <section className="mx-auto w-full max-w-7xl px-6 py-16">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-12 items-center">
+          {/* LEFT: Image */}
+          <div className="md:col-span-5">
+            <figure className="relative rounded-2xl overflow-hidden shadow-md">
+              <img
+                src="/leader.jpg" // replace with your image
+                alt="Leadership"
+                className="w-full h-auto object-cover"
+              />
+              {/* Caption / credits bar */}
+              <figcaption className="absolute bottom-0 left-0 right-0 bg-black/70 px-3 py-2 text-[12px] text-white">
+                Image courtesy of Your Company © 2025
+              </figcaption>
+            </figure>
+          </div>
 
-        {/* Divider */}
-        <div className="mt-6 h-px w-full bg-gray-200" />
+          {/* RIGHT: Text content */}
+          <div className="md:col-span-7">
+            <h2
+              className="text-3xl md:text-4xl font-bold leading-tight"
+              style={{ color: BRAND.slate900 }}
+            >
+              Our Vision for Growth and Prosperity
+            </h2>
 
-        {/* Content */}
-        <div className="mt-10 grid grid-cols-1 gap-12 md:grid-cols-2 items-start">
-          {/* LEFT: points + CTA */}
-          <div>
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-              {aboutPoints.map((pt) => (
-                <div
-                  key={pt.num}
-                  className="relative rounded-2xl bg-white p-5 shadow-sm ring-1 hover:shadow-md transition"
-                  style={{ ringColor: BRAND.slate200 }}
-                >
-                  <div className="flex items-center gap-3">
-                    <span
-                      className="inline-flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold text-white shadow-sm"
-                      style={{
-                        background: `linear-gradient(135deg, ${BRAND.teal}, ${BRAND.blue})`,
-                      }}
-                    >
-                      {pt.num}
-                    </span>
-                    <h3
-                      className="text-lg font-semibold"
-                      style={{ color: BRAND.slate900 }}
-                    >
-                      {pt.title}
-                    </h3>
-                  </div>
-                  <p
-                    className="mt-3 text-sm leading-6"
-                    style={{ color: BRAND.slate600 }}
-                  >
-                    {pt.body}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <p className="mt-4 text-[15px] leading-7" style={{ color: BRAND.slate700 }}>
+              In our 2025 leadership message, we share how innovation, partnerships,
+              and sustainable practices can reshape industries and expand opportunities
+              to build a more prosperous future for more people.
+            </p>
 
             {/* CTA */}
             <a
-              href="#learn-more"
-              className="mt-8 inline-flex w-max items-center gap-2 rounded-xl px-6 py-3 text-white shadow transition hover:-translate-y-0.5 active:translate-y-0"
-              style={{
-                background: `linear-gradient(135deg, ${BRAND.teal}, ${BRAND.blue})`,
-              }}
+              href="#vision-letter"
+              className="mt-6 inline-flex items-center gap-2 rounded-md bg-black px-5 py-3 text-white text-sm font-semibold shadow hover:bg-gray-900 transition"
             >
-              Learn More
               <svg
-                className="h-4 w-4"
                 viewBox="0 0 24 24"
+                className="h-4 w-4"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth={2}
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
+                <path d="M8 5l8 7-8 7" />
               </svg>
+              Read Our Vision Letter
             </a>
-          </div>
-
-          {/* RIGHT: single image */}
-          <div className="flex justify-center md:justify-end">
-            <img
-              src="/about-image.jpg" // Replace with your image (e.g. logistics/office/team photo)
-              alt="About 1 Global Enterprises"
-              className="w-full max-w-md rounded-2xl shadow-md object-cover"
-            />
           </div>
         </div>
       </section>
