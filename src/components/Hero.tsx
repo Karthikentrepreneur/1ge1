@@ -30,7 +30,7 @@ const Hero = () => {
           className="relative text-white"
           style={{
             background:
-              "linear-gradient(135deg, #04ADCE 0%, #009DD9 50%, #1A4F8B 100%)",
+              "linear-gradient(135deg, #00004A 0%, #04ADCE 25%, #000000 50%, #009DD9 75%, #083452 100%)",
           }}
         >
           <div className="mx-auto flex h-full w-full max-w-6xl items-center px-6 py-16 sm:px-10">
