@@ -1,46 +1,25 @@
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
-  const logos = [
-    "/logosss01.png",
-    "/logosss02.png",
-    "/logosss03.png",
-    "/logosss04.png",
-    "/logosss05.png",
-    "/logosss06.png",
-  ];
-
   return (
-    <section
-      id="hero"
-      className="relative"
-      style={
-        {
-          ["--brand-teal" as any]: "#07B5C9",
-          ["--brand-green" as any]: "#16C79A",
-          ["--brand-dark" as any]: "#313437",
-          ["--brand-gray" as any]: "#A5ABB1",
-        } as React.CSSProperties
-      }
-    >
-      {/* Split layout */}
+    <section id="hero" className="relative">
       <div className="grid min-h-[88vh] grid-cols-1 lg:grid-cols-2">
-        {/* LEFT: gradient background instead of solid black */}
+        {/* LEFT: gradient background (white + teal + blue) */}
         <div
           className="relative text-white"
           style={{
             background:
-              "linear-gradient(135deg, #00004A 0%, #04ADCE 25%, #000000 50%, #009DD9 75%, #083452 100%)",
+              "linear-gradient(135deg, #ffffff 0%, #04ADCE 25%, #ffffff 50%, #009DD9 75%, #ffffff 100%)",
           }}
         >
           <div className="mx-auto flex h-full w-full max-w-6xl items-center px-6 py-16 sm:px-10">
             <div className="max-w-2xl">
               {/* small kicker */}
-              <p className="mb-4 text-xs font-semibold tracking-[0.08em] text-[color:var(--brand-teal)]">
+              <p className="mb-4 text-xs font-semibold tracking-[0.08em] text-white/90">
                 1 GLOBAL ENTERPRISES
               </p>
 
-              <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl text-white">
                 2025 Midyear Outlook:
                 <br />
                 <span className="text-white">
@@ -48,7 +27,7 @@ const Hero = () => {
                 </span>
               </h1>
 
-              <p className="mt-5 text-base leading-relaxed text-[color:var(--brand-gray)] sm:text-lg">
+              <p className="mt-5 text-base leading-relaxed sm:text-lg text-white/80">
                 From renewable energy to supply chain and software, we’re
                 turning uncertainty into opportunity—guided by data, powered by
                 execution, and aligned to sustainable growth.
@@ -58,43 +37,36 @@ const Hero = () => {
               <div className="mt-8">
                 <a
                   href="/insights"
-                  className="group inline-flex items-center gap-3 rounded-md bg-white/5 px-5 py-3 text-sm font-semibold text-white ring-1 ring-white/15 transition hover:bg-white/10"
+                  className="group inline-flex items-center gap-3 rounded-md bg-white/20 px-5 py-3 text-sm font-semibold text-white shadow hover:bg-white/30 transition"
                 >
-                  <span className="inline-flex h-5 w-5 items-center justify-center rounded-sm bg-[color:var(--brand-teal)] text-black">
-                    <svg
-                      viewBox="0 0 24 24"
-                      className="h-3.5 w-3.5"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M8 5l8 7-8 7" />
-                    </svg>
-                  </span>
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M8 5l8 7-8 7" />
+                  </svg>
                   <span>Read our latest Insights</span>
                 </a>
               </div>
             </div>
           </div>
-
-          {/* subtle brand gradient bar (optional) */}
-          <div className="pointer-events-none hidden h-1 w-full bg-gradient-to-r from-[color:var(--brand-green)] via-[color:var(--brand-teal)] to-[color:var(--brand-green)] lg:block" />
         </div>
 
-        {/* RIGHT: replaced with logistics image */}
+        {/* RIGHT: logistics image */}
         <div
           className="relative min-h-[48vh] lg:min-h-0"
           style={{
             backgroundImage:
-              "linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.05)), url('/logistics.png')",
+              "linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(255,255,255,0.05)), url('/logistics.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
-        >
-          <div className="pointer-events-none absolute left-0 top-0 hidden h-full w-1 bg-black/60 lg:block" />
-        </div>
+        />
       </div>
     </section>
   );
