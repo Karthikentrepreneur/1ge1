@@ -93,18 +93,7 @@ const Hero = () => {
       </div>
 
       {/* Logos Section */}
-      <div className="bg-white py-12">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-10 px-6">
-          {logos.map((logo, i) => (
-            <img
-              key={i}
-              src={logo}
-              alt={`Company logo ${i + 1}`}
-              className="h-14 sm:h-16 w-auto object-contain opacity-80 hover:opacity-100 transition"
-            />
-          ))}
-        </div>
-      </div>
+
     </section>
   );
 };
