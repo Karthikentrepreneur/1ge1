@@ -1,5 +1,20 @@
 import { Button } from "@/components/ui/button";
 
+/**
+ * Split hero inspired by the screenshot:
+ * - Left: dense black panel with big headline + paragraph + CTA
+ * - Right: full-bleed background image (ocean/ship style)
+ *
+ * Brand palette taken from the 1 GLOBAL logo:
+ *   --brand-teal: #07B5C9
+ *   --brand-green: #16C79A
+ *   --brand-dark: #313437 (for headings on black)
+ *   --brand-gray: #808488 (body text on black)
+ *
+ * Replace `/hero-ocean.jpg` with your actual image (1920x1080+ recommended).
+ * You can also pass it via props if you prefer.
+ */
+
 const Hero = () => {
   const logos = [
     "/logosss01.png",
@@ -13,73 +28,117 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen"
-      style={{
-        background:
-          "radial-gradient(1200px 600px at 30% -10%, rgba(99, 179, 237, 0.25), transparent 60%), radial-gradient(900px 500px at 90% 20%, rgba(99, 102, 241, 0.18), transparent 60%), linear-gradient(180deg, #e6f3ff 0%, #f2f7ff 100%)",
-      }}
+      className="relative"
+      style={
+        {
+          // easy theming from your logo
+          // (you can lift these to :root in CSS if you’ll reuse them)
+          ["--brand-teal" as any]: "#07B5C9",
+          ["--brand-green" as any]: "#16C79A",
+          ["--brand-dark" as any]: "#313437",
+          ["--brand-gray" as any]: "#A5ABB1",
+        } as React.CSSProperties
+      }
     >
-      {/* Hero content (centered vertically) */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-20 min-h-[80vh] flex items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
-          {/* LEFT */}
-          <div className="text-center lg:text-left">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] text-gray-900">
-              Building a Smarter, <br />
-              <span className="text-gray-900">Greener World</span>
-            </h1>
+      {/* Split layout */}
+      <div className="grid min-h-[88vh] grid-cols-1 lg:grid-cols-2">
+        {/* LEFT: headline on black */}
+        <div className="relative bg-black text-white">
+          <div className="mx-auto flex h-full w-full max-w-6xl items-center px-6 py-16 sm:px-10">
+            <div className="max-w-2xl">
+              {/* small kicker */}
+              <p className="mb-4 text-xs font-semibold tracking-[0.08em] text-[color:var(--brand-teal)]">
+                1 GLOBAL ENTERPRISES
+              </p>
 
-            <p className="mt-6 text-base sm:text-lg text-gray-600 max-w-xl mx-auto lg:mx-0">
-              Driving innovation in renewable energy, food technology, supply chain solutions,
-              software, and lubricants — creating a cleaner and more connected world.
-            </p>
+              <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+                2025 Midyear Outlook:
+                <br />
+                <span className="text-white">
+                  Driving clarity in a changing world
+                </span>
+              </h1>
 
-            {/* Only Get Started button */}
-            <div className="mt-8 flex justify-center lg:justify-start">
-              <Button
-                type="button"
-                className="px-8 py-4 text-base font-semibold bg-blue-600 hover:bg-blue-700"
-              >
-                Get Started
-              </Button>
+              <p className="mt-5 text-base leading-relaxed text-[color:var(--brand-gray)] sm:text-lg">
+                From renewable energy to supply chain and software, we’re
+                turning uncertainty into opportunity—guided by data, powered by
+                execution, and aligned to sustainable growth.
+              </p>
+
+              {/* CTA (teal chevron like the screenshot’s arrow accent) */}
+              <div className="mt-8">
+                <a
+                  href="/insights"
+                  className="group inline-flex items-center gap-3 rounded-md bg-white/5 px-5 py-3 text-sm font-semibold text-white ring-1 ring-white/15 transition hover:bg-white/10"
+                >
+                  <span className="inline-flex h-5 w-5 items-center justify-center rounded-sm bg-[color:var(--brand-teal)] text-black">
+                    {/* caret/arrow */}
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-3.5 w-3.5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M8 5l8 7-8 7" />
+                    </svg>
+                  </span>
+                  <span>Read our latest Insights</span>
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* RIGHT */}
-          <div className="relative flex items-center justify-center">
-            {/* Purple circle behind the person */}
-            <div
-              aria-hidden
-              className="
-                absolute rounded-full bg-[#7c3aed]
-                w-[320px] h-[320px] sm:w-[440px] sm:h-[440px] lg:w-[420px] lg:h-[420px]
-                top-1/2 -translate-y-1/2 right-[-24px] sm:right-[-8px] lg:right-0
-                z-0
-              "
-            />
-            {/* Person (stays above the circle) */}
+          {/* subtle brand gradient bar at the very bottom (desktop only) */}
+          <div className="pointer-events-none hidden h-1 w-full bg-gradient-to-r from-[color:var(--brand-green)] via-[color:var(--brand-teal)] to-[color:var(--brand-green)] lg:block" />
+        </div>
+
+        {/* RIGHT: full-bleed image panel */}
+        <div
+          className="relative min-h-[48vh] lg:min-h-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.05)), url('/hero-ocean.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          {/* Optional overlay edge to create the hard split line */}
+          <div className="pointer-events-none absolute left-0 top-0 hidden h-full w-1 bg-black lg:block" />
+        </div>
+      </div>
+
+      {/* Brand strip with your logo (kept minimal like BlackRock) */}
+      <div className="bg-white">
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-6 py-6 sm:px-10">
+          <div className="flex items-center gap-3">
             <img
-              src="/heromman.png"
-              alt="Happy customer"
-              className="relative z-10 w-[300px] sm:w-[380px] md:w-[430px] lg:w-[480px] object-contain"
+              src="/globallogo.png"
+              alt="1 Global Enterprises"
+              className="h-9 w-auto object-contain"
             />
+            <div className="hidden text-sm text-gray-500 sm:block">
+              Trusted capabilities across Renewable Energy, Supply Chain,
+              Lubricants & Software
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Logos (same background, same sizes) */}
-      <div className="relative z-10 w-full pb-14">
-        <h2 className="text-center text-xl font-semibold text-gray-800 mb-4">
+      {/* Partners / Group logos */}
+      <div className="bg-white py-10">
+        <h2 className="mb-5 text-center text-lg font-semibold text-gray-800">
           Group of Companies
         </h2>
-
-        <div className="flex justify-center flex-wrap gap-10 px-6">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-10 px-6">
           {logos.map((logo, i) => (
             <img
               key={i}
               src={logo}
               alt={`Company logo ${i + 1}`}
-              className="h-16 sm:h-20 w-auto object-contain"
+              className="h-14 w-auto object-contain opacity-90 grayscale hover:grayscale-0"
             />
           ))}
         </div>
