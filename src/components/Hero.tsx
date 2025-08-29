@@ -1,4 +1,4 @@
-           import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   const logos = [
@@ -30,17 +30,17 @@ const Hero = () => {
           className="relative text-white"
           style={{
             background:
-              "linear-gradient(135deg, #00004A 0%, #04ADCE 25%, #000000 50%, #009DD9 75%, #083452 100%)",
+              "linear-gradient(135deg, #ffffff 0%, #04ADCE 25%, #ffffff 50%, #009DD9 75%, #ffffff 100%)",
           }}
         >
           <div className="mx-auto flex h-full w-full max-w-6xl items-center px-6 py-16 sm:px-10">
             <div className="max-w-2xl">
               {/* small kicker */}
-              <p className="mb-4 text-xs font-semibold tracking-[0.08em] text-[]">
+              <p className="mb-4 text-xs font-semibold tracking-[0.08em] text-white/90">
                 1 GLOBAL ENTERPRISES
               </p>
 
-              <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl text-white">
                 2025 Midyear Outlook:
                 <br />
                 <span className="text-white">
@@ -48,7 +48,7 @@ const Hero = () => {
                 </span>
               </h1>
 
-              <p className="mt-5 text-base leading-relaxed text-[color:var(--brand-gray)] sm:text-lg">
+              <p className="mt-5 text-base leading-relaxed sm:text-lg text-white/80">
                 From renewable energy to supply chain and software, we’re
                 turning uncertainty into opportunity—guided by data, powered by
                 execution, and aligned to sustainable growth.
@@ -58,7 +58,7 @@ const Hero = () => {
               <div className="mt-8">
                 <a
                   href="/insights"
-                  className="group inline-flex items-center gap-3 rounded-md bg-white/5 px-5 py-3 text-sm font-semibold text-white ring-1 ring-white/15 transition hover:bg-white/10"
+                  className="group inline-flex items-center gap-3 rounded-md bg-white/20 px-5 py-3 text-sm font-semibold text-white shadow hover:bg-white/30 transition"
                 >
                   <span className="inline-flex h-5 w-5 items-center justify-center rounded-sm bg-[color:var(--brand-teal)] text-black">
                     <svg
@@ -78,22 +78,34 @@ const Hero = () => {
               </div>
             </div>
           </div>
-
-          {/* subtle brand gradient bar (optional) */}
-          <div className="pointer-events-none hidden h-1 w-full bg-gradient-to-r from-[color:var(--brand-green)] via-[color:var(--brand-teal)] to-[color:var(--brand-green)] lg:block" />
         </div>
 
-        {/* RIGHT: replaced with logistics image */}
+        {/* RIGHT: replaced with ship image */}
         <div
           className="relative min-h-[48vh] lg:min-h-0"
           style={{
             backgroundImage:
-              "linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.05)), url('/ship.png')",
+              "linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(255,255,255,0.05)), url('/ship.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
-        >
-          <div className="pointer-events-none absolute left-0 top-0 hidden h-full w-1 bg-black/60 lg:block" />
+        />
+      </div>
+
+      {/* Logos Section */}
+      <div className="bg-white py-12">
+        <h2 className="mb-6 text-center text-lg font-semibold text-gray-800">
+          Group of Companies
+        </h2>
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-10 px-6">
+          {logos.map((logo, i) => (
+            <img
+              key={i}
+              src={logo}
+              alt={`Company logo ${i + 1}`}
+              className="h-14 sm:h-16 w-auto object-contain opacity-80 hover:opacity-100 transition"
+            />
+          ))}
         </div>
       </div>
     </section>
