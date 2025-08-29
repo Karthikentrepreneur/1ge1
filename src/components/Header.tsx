@@ -26,7 +26,7 @@ const Header = () => {
             <img
               src="/globallogo.png"
               alt="1 Global Enterprises"
-              className="h-7 w-auto object-contain"
+              className="h-9 w-auto object-contain"
             />
           </Link>
 
